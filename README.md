@@ -1,6 +1,9 @@
-# MVP基础架构探索实现
+# 项目基础架构探索实现
 
-## 1. 实现线索
+1. MVP
+2. 启动框架
+
+## 1. MVP实现线索
 
 1. view
 2. presenter
@@ -62,12 +65,32 @@ protected abstract class BaseActivity<P : BasePresenter<V>, V : IBaseView> : App
 
 ```
 
-### 2.2 利用Lifecycle感知生命周期
+### 1.2 利用Lifecycle感知生命周期
 
 - 被观察者：实现LifecycleOwner
     - Activity、Fragment
 - 观察者：继承LifecycleObserver
     - 各种Presenter
+
+## 2. App启动框架（任务调度系统）
+
+### 2.1 拓扑排序算法
+
+**算法实现**
+``TopologySort.kt``
+
+**单元测试**
+``TopologySortTest.kt``
+
+```
+===== 拓扑排序结果 ====
+SafetyCheckTask =>PrivacyTask =>DataBaseTask =>SDKTask =>MiddlewareTask
+===== 拓扑依赖关系图 ====
+PrivacyTask <= DataBaseTask, SDKTask, 
+SDKTask <= MiddlewareTask, 
+DataBaseTask <= MiddlewareTask, 
+SafetyCheckTask <= PrivacyTask, 
+```
 
 ### 2.2 总线 代替接口回调传输数据 Model -> Presenter
 
