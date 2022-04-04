@@ -4,6 +4,8 @@ import android.content.Context
 import android.util.Log
 import com.akashi.basicframework.startup.AndroidStartup
 import com.akashi.basicframework.startup.Startup
+import com.akashi.basicframework.startup.manager.mainExecutor
+import java.util.concurrent.Executor
 
 /**
  * 2. 各种sdk初始化
@@ -19,10 +21,7 @@ class SDKTask : AndroidStartup<Boolean>() {
         return true
     }
 
-    override fun dependencies(): List<Class<out Startup<*>>>? {
+    override fun dependencies(): List<Class<out Startup<*>>> {
         return listOf(PrivacyTask::class.java)
     }
-
-    override fun getDependenciesCount(): Int = 1
-
 }

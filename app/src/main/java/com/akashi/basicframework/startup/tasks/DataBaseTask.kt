@@ -17,6 +17,4 @@ class DataBaseTask : AndroidStartup<Boolean>() {
     override fun dependencies(): List<Class<out Startup<*>>> {
         return listOf(PrivacyTask::class.java)
     }
-
-    override fun getDependenciesCount(): Int = 1
 }

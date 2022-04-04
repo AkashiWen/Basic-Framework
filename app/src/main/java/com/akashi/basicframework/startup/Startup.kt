@@ -5,7 +5,7 @@ import android.content.Context
 /**
  * 抽象启动任务
  */
-interface Startup<T> {
+interface Startup<T>: Dispatcher {
 
     /**
      * 任务初始化代码

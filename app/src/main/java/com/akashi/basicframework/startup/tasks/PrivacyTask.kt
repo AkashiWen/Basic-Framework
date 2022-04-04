@@ -4,6 +4,8 @@ import android.content.Context
 import android.util.Log
 import com.akashi.basicframework.startup.AndroidStartup
 import com.akashi.basicframework.startup.Startup
+import com.akashi.basicframework.startup.manager.mainExecutor
+import java.util.concurrent.Executor
 
 /**
  * 1. 隐私协议
@@ -14,9 +16,11 @@ class PrivacyTask : AndroidStartup<Boolean>() {
         return true
     }
 
-    override fun dependencies(): List<Class<out Startup<*>>>? {
+    override fun dependencies(): List<Class<out Startup<*>>> {
         return listOf(SafetyCheckTask::class.java)
     }
 
-    override fun getDependenciesCount(): Int = 1
+    override fun callCreateOnMainThread(): Boolean = true
+    override fun executor(): Executor = mainExecutor
+
 }

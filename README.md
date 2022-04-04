@@ -92,6 +92,49 @@ DataBaseTask <= MiddlewareTask,
 SafetyCheckTask <= PrivacyTask, 
 ```
 
+### 2.2 加入CountDownLatch实现对启动任务的并发控制
+
+**接口**
+``Dispatcher.kt``
+
+- 提供运行线程选择
+- 提供线程池选择
+- 支持设置线程优先级
+
+**默认实现**
+抽象类``AndroidStartup.kt``
+> 持有一个CountDownLatch对象
+
+**线程池管理**
+``ExecutorManager.kt``
+
+提供三种线程池
+
+- cpu密集型
+- io密集型
+- main主线程
+
+**线程任务封装**
+``StartupRunnable.kt``
+
+**启动入口**
+``StartupManager.kt``
+
+> 遗留问题：countDownLatch初始化和赋值
+
+### 2.3 加入ContentProvider优化启动调用
+
+**优化结果**
+只需要在manifest中配置末端任务，程序会自动查找父任务依次执行
+
+``StartupProvider.kt``
+- 在Application#onCreate()之前执行
+
+``StartupInitializer.kt``
+- PMS 读取Provider#META-DATA
+- 递归遍历父任务
+
+
 ### 2.2 总线 代替接口回调传输数据 Model -> Presenter
 
 ### 2.3 对象注入 Koin dagger2 Hlit 等

@@ -18,5 +18,4 @@ class MiddlewareTask : AndroidStartup<Boolean>() {
         return listOf(SDKTask::class.java, DataBaseTask::class.java)
     }
 
-    override fun getDependenciesCount(): Int = 2
 }

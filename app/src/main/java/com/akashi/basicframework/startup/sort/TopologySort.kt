@@ -47,12 +47,20 @@ class TopologySort {
             }
 
             // 2. 开始排序，删除图中入度0的定点，然后更新全图，直到完成所有
-            val result: MutableList<Startup<*>> = mutableListOf()
+            val result = mutableListOf<Startup<*>>()
+//            val main = mutableListOf<Startup<*>>()
+//            val thread = mutableListOf<Startup<*>>()
 
             while (!zeroDegree.isEmpty()) {
                 val cls = zeroDegree.poll()!!
                 startupMap[cls]?.let {
                     result.add(it)
+                    // 2.1 优化：防止主线程因等待运行完毕而阻塞
+//                    (if (it.callCreateOnMainThread()) {
+//                        main
+//                    } else {
+//                        thread
+//                    }).add(it)
                 }
 
                 // 删除此入度0的任务
@@ -70,6 +78,13 @@ class TopologySort {
                     }
                 }
             }
+
+            result.run {
+                // 所有子线程放前面，避免阻塞
+//                this.addAll(thread)
+//                this.addAll(main)
+            }
+
             return StartupSortStore(
                 result.toList(),
                 startupMap,
