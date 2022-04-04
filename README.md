@@ -2,6 +2,7 @@
 
 1. MVP
 2. 启动框架
+> 技术研究向复杂版，轻量级别无视，或者使用[android-startup](https://github.com/idisfkj/android-startup)
 
 ## 1. MVP实现线索
 
