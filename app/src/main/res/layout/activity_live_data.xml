@@ -4,23 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activity.LiveDataActivity">
+
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn"
+        android:id="@+id/btn_post_value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="UserActivity!"
+        android:text="post livedata value"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_livedata"
+        android:id="@+id/btn_non_sticky"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LiveDataActivity"
+        android:text="测试非粘性事件"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn" />
-
-
+        app:layout_constraintTop_toBottomOf="@id/btn_post_value" />
 </androidx.constraintlayout.widget.ConstraintLayout>

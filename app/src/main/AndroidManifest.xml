@@ -11,6 +11,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BasicFramework">
         <activity
+            android:name=".activity.LiveDataActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.TestNonStickyLiveDataActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -19,7 +25,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".UserActivity"
             android:configChanges="keyboardHidden|orientation"
