@@ -8,10 +8,10 @@
 
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_post_value"
+        android:id="@+id/btn_post_non_sticky"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="post livedata value"
+        android:text="发送非粘性事件到总线"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -19,7 +19,15 @@
         android:id="@+id/btn_non_sticky"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="测试非粘性事件"
+        android:text="跳转"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_post_value" />
+        app:layout_constraintTop_toBottomOf="@id/btn_post_non_sticky" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_post_sticky"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="发送粘性事件到总线"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_non_sticky" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,3 +20,7 @@ hook点2： ``mVersion``
 
 ``NonStickyLiveData.kt``
 ...
+
+### 1.2 LiveDataBus
+
+提供粘性和非粘性注册

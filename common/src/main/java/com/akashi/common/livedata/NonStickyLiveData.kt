@@ -11,17 +11,10 @@ import java.lang.NullPointerException
  */
 class NonStickyLiveData<T> : MutableLiveData<T>() {
 
-    /**
-     * 默认false
-     * 让hook在第一次observe生效
-     */
-    private var stickyFlag = false
 
     override fun observe(owner: LifecycleOwner, observer: Observer<in T>) {
         super.observe(owner, observer)
-        if (!stickyFlag) {
-            this.hook(observer)
-        }
+        this.hook(observer)
     }
 
     private fun hook(observer: Observer<in T>) {
@@ -62,7 +55,6 @@ class NonStickyLiveData<T> : MutableLiveData<T>() {
             val mVersion = mVersionField.get(this)
             mLastVersion.set(observerWrapper, mVersion)
 
-            stickyFlag = true
         } catch (e: Throwable) {
             e.printStackTrace()
         }
