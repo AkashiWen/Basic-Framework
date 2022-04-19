@@ -1,9 +1,11 @@
 package com.akashi.basicframework
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
+import com.akashi.basicframework.activity.LiveDataActivity
+import com.akashi.common.actions.clickJitter
+import com.akashi.common.actions.intentTo
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -11,9 +13,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         findViewById<AppCompatButton>(R.id.btn).setOnClickListener {
-            Intent(this, UserActivity::class.java).run {
-                startActivity(this)
-            }
+            intentTo(UserActivity::class.java)
+        }
+
+        findViewById<AppCompatButton>(R.id.btn_livedata).clickJitter {
+            intentTo(LiveDataActivity::class.java)
         }
     }
+
 }

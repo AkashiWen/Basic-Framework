@@ -1,6 +1,7 @@
 package com.akashi.basicframework
 
 import android.util.Log
+import android.widget.Toast
 import com.akashi.basicframework.bean.User
 import com.akashi.basicframework.presenter.UserPresenter
 import com.akashi.basicframework.view.UserView
@@ -15,8 +16,8 @@ class UserActivity : BaseActivity<UserPresenter, UserView>(), UserView {
     }
 
     override fun displayProfile(user: User) {
-        // TODO ..
         Log.i("displayProfile", user.toString())
+        Toast.makeText(this, "$user", Toast.LENGTH_SHORT).show()
     }
 
     override fun showError(msg: String) {

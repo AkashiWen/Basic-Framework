@@ -4,23 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activity.TestNonStickyLiveDataActivity">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_bus_sticky"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="UserActivity!"
+        android:hint="观察粘性事件Event2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_livedata"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_bus_non_sticky"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LiveDataActivity"
+        android:hint="观察非粘性事件Event1"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn" />
-
+        app:layout_constraintTop_toBottomOf="@id/tv_bus_sticky" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
