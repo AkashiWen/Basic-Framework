@@ -1,4 +1,4 @@
-package com.akashi.basicframework.bean
+package com.akashi.basicframework.business.user.bean
 
 data class User(
     val name: String,

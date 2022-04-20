@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import com.akashi.basicframework.activity.LiveDataActivity
+import com.akashi.basicframework.business.user.UserActivity
 import com.akashi.common.actions.clickJitter
 import com.akashi.common.actions.intentTo
 

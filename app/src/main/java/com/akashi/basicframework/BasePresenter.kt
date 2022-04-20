@@ -1,4 +1,4 @@
-package com.akashi.basicframework.presenter
+package com.akashi.basicframework
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver

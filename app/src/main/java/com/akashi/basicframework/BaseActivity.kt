@@ -2,7 +2,6 @@ package com.akashi.basicframework
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.akashi.basicframework.presenter.BasePresenter
 import com.akashi.basicframework.view.IBaseView
 
 /**

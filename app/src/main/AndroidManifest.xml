@@ -26,7 +26,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".UserActivity"
+            android:name=".business.user.UserActivity"
             android:configChanges="keyboardHidden|orientation"
             android:exported="false"
             android:launchMode="standard" />

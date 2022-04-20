@@ -1,4 +1,4 @@
-package com.akashi.basicframework.model
+package com.akashi.basicframework
 
 interface IBaseModel<B> {
 

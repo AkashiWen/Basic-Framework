@@ -1,10 +1,11 @@
-package com.akashi.basicframework.presenter
+package com.akashi.basicframework.business.user.presenter
 
 import android.util.Log
 import androidx.lifecycle.LifecycleOwner
-import com.akashi.basicframework.bean.User
-import com.akashi.basicframework.model.IBaseModel
-import com.akashi.basicframework.model.UserModel
+import com.akashi.basicframework.BasePresenter
+import com.akashi.basicframework.business.user.bean.User
+import com.akashi.basicframework.IBaseModel
+import com.akashi.basicframework.business.user.model.UserModel
 import com.akashi.basicframework.view.UserView
 
 class UserPresenter : BasePresenter<UserView>() {
