@@ -38,11 +38,11 @@
         {
           "name": "modify-1.0.0.jar",
           "url": "modify-1.0.0.jar",
-          "size": 3408,
-          "sha512": "2225093e2c3e9a627c8d88bf7c26c0fde63783376b4b6b583347b1be4eddf62efaf14cc1e219057aa599a29a976d5cf5890c9f34fea990bbbbd7fef7d83d6282",
-          "sha256": "ab089de23e179c731ceda4ec71f5701126024bb6c73c3c251d6b3b8b6b8e72a3",
-          "sha1": "fc41a90074b001ce45c4a14763220db1b9d2ad59",
-          "md5": "d2f477fa8515bc672c3059218b9a66ca"
+          "size": 6339,
+          "sha512": "c42f606eba25cf71a5b5a8a757f69a509bb4279f0632eaf0d07d9c1e1b77ee05c0fd8e4091275ac450fba6ecef8f1ea67e4a099bbba54519a5bf16905d62aad8",
+          "sha256": "6d4006f6a99adfd00e0e7a093be0c94b87ad933869d081340e20a58b39b2e3d7",
+          "sha1": "68a9a7db7fa2036387f5d853c78b72eba0dcc7b1",
+          "md5": "b5ab21caabb80b9172b51f6eb59e245f"
         }
       ]
     },
@@ -84,11 +84,11 @@
         {
           "name": "modify-1.0.0.jar",
           "url": "modify-1.0.0.jar",
-          "size": 3408,
-          "sha512": "2225093e2c3e9a627c8d88bf7c26c0fde63783376b4b6b583347b1be4eddf62efaf14cc1e219057aa599a29a976d5cf5890c9f34fea990bbbbd7fef7d83d6282",
-          "sha256": "ab089de23e179c731ceda4ec71f5701126024bb6c73c3c251d6b3b8b6b8e72a3",
-          "sha1": "fc41a90074b001ce45c4a14763220db1b9d2ad59",
-          "md5": "d2f477fa8515bc672c3059218b9a66ca"
+          "size": 6339,
+          "sha512": "c42f606eba25cf71a5b5a8a757f69a509bb4279f0632eaf0d07d9c1e1b77ee05c0fd8e4091275ac450fba6ecef8f1ea67e4a099bbba54519a5bf16905d62aad8",
+          "sha256": "6d4006f6a99adfd00e0e7a093be0c94b87ad933869d081340e20a58b39b2e3d7",
+          "sha1": "68a9a7db7fa2036387f5d853c78b72eba0dcc7b1",
+          "md5": "b5ab21caabb80b9172b51f6eb59e245f"
         }
       ]
     }
