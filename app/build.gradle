@@ -1,7 +1,10 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+//    id 'com.akashi.javassist' version '1.0.0'
 }
+
+apply plugin: 'com.akashi.javassist'
 
 android {
     compileSdk 31

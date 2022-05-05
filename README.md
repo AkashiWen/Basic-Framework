@@ -136,7 +136,10 @@ SafetyCheckTask <= PrivacyTask,
 - 递归遍历父任务
 
 
-### 2.2 总线 代替接口回调传输数据 Model -> Presenter
+### 2.2 总线
+
+- common
+  **LiveDataBus.kt**
 
 ### 2.3 对象注入 Koin dagger2 Hlit 等
 
@@ -145,3 +148,6 @@ SafetyCheckTask <= PrivacyTask,
 ### 2.5 gradle git
 
 ### 2.6 插件化、热修复
+
+- javassist
+  **CustomKotlinPlugin.kt**
