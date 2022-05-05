@@ -19,19 +19,30 @@
       "attributes": {
         "org.gradle.category": "library",
         "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
         "org.gradle.jvm.version": 7,
         "org.gradle.libraryelements": "jar",
-        "org.gradle.usage": "java-api"
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
       },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.6.20"
+          }
+        }
+      ],
       "files": [
         {
           "name": "modify-1.0.0.jar",
           "url": "modify-1.0.0.jar",
-          "size": 2314,
-          "sha512": "26f71324f9323c16fa5ec40f898a5a8dca3c2d05b82b4661982bd88e34e5914dac20bd9daf14eb376f286097af0da5e3866b621f7e33dd8428f8d9985b7d7215",
-          "sha256": "ec7b172b435fb3d8046f4fe5d4bb9d57ddf391868d9e194df432acb134ebd151",
-          "sha1": "4114bfc1d3a631b7e0f5dc38e2284f001588502c",
-          "md5": "5ff7ba97716b6dd1d697fd02948814c9"
+          "size": 3408,
+          "sha512": "2225093e2c3e9a627c8d88bf7c26c0fde63783376b4b6b583347b1be4eddf62efaf14cc1e219057aa599a29a976d5cf5890c9f34fea990bbbbd7fef7d83d6282",
+          "sha256": "ab089de23e179c731ceda4ec71f5701126024bb6c73c3c251d6b3b8b6b8e72a3",
+          "sha1": "fc41a90074b001ce45c4a14763220db1b9d2ad59",
+          "md5": "d2f477fa8515bc672c3059218b9a66ca"
         }
       ]
     },
@@ -40,9 +51,11 @@
       "attributes": {
         "org.gradle.category": "library",
         "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
         "org.gradle.jvm.version": 7,
         "org.gradle.libraryelements": "jar",
-        "org.gradle.usage": "java-runtime"
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
       },
       "dependencies": [
         {
@@ -58,17 +71,24 @@
           "version": {
             "requires": "4.1.2"
           }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.6.20"
+          }
         }
       ],
       "files": [
         {
           "name": "modify-1.0.0.jar",
           "url": "modify-1.0.0.jar",
-          "size": 2314,
-          "sha512": "26f71324f9323c16fa5ec40f898a5a8dca3c2d05b82b4661982bd88e34e5914dac20bd9daf14eb376f286097af0da5e3866b621f7e33dd8428f8d9985b7d7215",
-          "sha256": "ec7b172b435fb3d8046f4fe5d4bb9d57ddf391868d9e194df432acb134ebd151",
-          "sha1": "4114bfc1d3a631b7e0f5dc38e2284f001588502c",
-          "md5": "5ff7ba97716b6dd1d697fd02948814c9"
+          "size": 3408,
+          "sha512": "2225093e2c3e9a627c8d88bf7c26c0fde63783376b4b6b583347b1be4eddf62efaf14cc1e219057aa599a29a976d5cf5890c9f34fea990bbbbd7fef7d83d6282",
+          "sha256": "ab089de23e179c731ceda4ec71f5701126024bb6c73c3c251d6b3b8b6b8e72a3",
+          "sha1": "fc41a90074b001ce45c4a14763220db1b9d2ad59",
+          "md5": "d2f477fa8515bc672c3059218b9a66ca"
         }
       ]
     }

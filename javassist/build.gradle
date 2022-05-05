@@ -1,6 +1,10 @@
 plugins {
+    // 使用groovy编写插件
     id 'groovy'
+    // id maven被弃用
     id 'maven-publish'
+    // 使用kotlin编写插件
+    id 'org.jetbrains.kotlin.jvm'
 }
 
 java {
