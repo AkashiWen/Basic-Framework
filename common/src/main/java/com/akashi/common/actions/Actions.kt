@@ -3,6 +3,7 @@ package com.akashi.common.actions
 import android.content.Intent
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.akashi.common.constant.LoginConstant
 
 fun View.clickJitter(block: () -> Unit) {
     this.setOnClickListener {
@@ -14,8 +15,11 @@ fun View.clickJitter(block: () -> Unit) {
     }
 }
 
-fun AppCompatActivity.intentTo(activity: Class<out AppCompatActivity>) {
+fun AppCompatActivity.intentTo(activity: Class<out AppCompatActivity>, needsLogin: Boolean = false) {
     Intent(this, activity).run {
+        if (needsLogin) {
+            putExtra(LoginConstant.STR_NEEDS_LOGIN, true)
+        }
         startActivity(this)
     }
 }

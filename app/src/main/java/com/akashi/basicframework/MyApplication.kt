@@ -3,7 +3,8 @@ package com.akashi.basicframework
 import android.app.Application
 import android.util.Log
 import android.widget.Toast
-import com.akashi.common.hook.hookAMS
+import com.akashi.basicframework.hook.LoginActivity
+import com.akashi.common.hook.HookUtil
 
 class MyApplication : Application() {
 
@@ -17,7 +18,10 @@ class MyApplication : Application() {
 
         // hook工具 —— hook AMS
         try {
-            hookAMS()
+            HookUtil.getInstance()
+                .with(this)
+                .hookTo(LoginActivity::class.java)
+                .hookAMS()
         } catch (e: Throwable) {
             Log.e("TAG", "onCreate: ${e.printStackTrace()}")
         }
