@@ -1,11 +1,8 @@
-package com.akashi.basicframework.activity
+package com.akashi.basicframework.livedata
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import com.akashi.basicframework.R
 import com.akashi.basicframework.databinding.ActivityTestNonStickyLiveDataBinding
-import com.akashi.basicframework.toast
 import com.akashi.common.livedata.LiveDataBus
 
 /**

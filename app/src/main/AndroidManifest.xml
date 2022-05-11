@@ -11,10 +11,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BasicFramework">
         <activity
-            android:name=".activity.LiveDataActivity"
+            android:name=".hook.HookSuccessActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.TestNonStickyLiveDataActivity"
+            android:name=".hook.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".livedata.LiveDataActivity"
+            android:exported="false" />
+        <activity
+            android:name=".livedata.TestNonStickyLiveDataActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

@@ -4,22 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".livedata.TestNonStickyLiveDataActivity">
+    tools:context=".hook.HookSuccessActivity">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_bus_sticky"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="观察粘性事件Event2"
+        android:text="Hook登录成功！！"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_bus_non_sticky"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="观察非粘性事件Event1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_bus_sticky" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
