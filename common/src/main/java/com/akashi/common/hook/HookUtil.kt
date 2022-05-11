@@ -106,13 +106,13 @@ class HookUtil private constructor() {
                         return@let
                     }
                     // 原始意图
-                    val originTargetActivity = it.component?.className
+                    val originIntentActivity = it.component?.className
                     // 修改跳转到目标Activity
                     val componentName = ComponentName(mContext, mTargetActivity)
                     it.run {
                         component = componentName
-                        // TODO 在LoginActivity还原目标意图
-                        putExtra("originTarget", originTargetActivity)
+                        // 在LoginActivity还原目标意图
+                        putExtra(LoginConstant.STR_ORIGIN_INTENT, originIntentActivity)
                     }
 
                 }
