@@ -1,9 +1,5 @@
 # 项目基础架构探索实现
 
-1. MVP
-2. 启动框架
-> 技术研究向复杂版，轻量级别无视，或者使用[android-startup](https://github.com/idisfkj/android-startup)
-
 ## 1. MVP实现线索
 
 1. view
@@ -75,6 +71,8 @@ protected abstract class BaseActivity<P : BasePresenter<V>, V : IBaseView> : App
 
 ## 2. App启动框架（任务调度系统）
 
+> 技术研究向复杂版，轻量级别无视，或者使用[android-startup](https://github.com/idisfkj/android-startup)
+
 ### 2.1 拓扑排序算法
 
 **算法实现**
@@ -129,25 +127,26 @@ SafetyCheckTask <= PrivacyTask,
 只需要在manifest中配置末端任务，程序会自动查找父任务依次执行
 
 ``StartupProvider.kt``
+
 - 在Application#onCreate()之前执行
 
 ``StartupInitializer.kt``
+
 - PMS 读取Provider#META-DATA
 - 递归遍历父任务
 
+### 3. 总线
 
-### 2.2 总线
+`/common/LiveDataBus.kt`
 
-- common
-  **LiveDataBus.kt**
+### 4. 对象注入 Koin dagger2 Hlit 等
 
-### 2.3 对象注入 Koin dagger2 Hlit 等
+### 5. 组件化
 
-### 2.4 组件化
+### 6. hook工具
 
-### 2.5 gradle git
+`/common/hook/HookUtil.kt`
 
-### 2.6 插件化、热修复
+### 7. 插件化、热修复
 
-- javassist
-  **CustomKotlinPlugin.kt**
+`/javassist/CustomKotlinPlugin`
