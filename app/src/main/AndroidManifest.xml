@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.akashi.basicframework">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -11,16 +14,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BasicFramework">
         <activity
-            android:name=".hook.HookSuccessActivity"
+            android:name=".test.file.ExternalFileActivity"
             android:exported="false" />
         <activity
-            android:name=".hook.LoginActivity"
+            android:name=".test.hook.HookSuccessActivity"
             android:exported="false" />
         <activity
-            android:name=".livedata.LiveDataActivity"
+            android:name=".test.hook.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".livedata.TestNonStickyLiveDataActivity"
+            android:name=".test.livedata.LiveDataActivity"
+            android:exported="false" />
+        <activity
+            android:name=".test.livedata.TestNonStickyLiveDataActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

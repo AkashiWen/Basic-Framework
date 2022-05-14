@@ -1,4 +1,4 @@
-package com.akashi.basicframework.livedata
+package com.akashi.basicframework.test.livedata
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

@@ -24,3 +24,15 @@ hook点2： ``mVersion``
 ### 1.2 LiveDataBus
 
 提供粘性和非粘性注册
+
+## 2. Hook
+
+### 2.1 hook ams
+
+`/hook/HookUtil.kt`
+
+## 3. 外置存储卡存储框架
+
+### 3.1 针对Android11 R 30
+
+`/file/ScopedStorage.kt`

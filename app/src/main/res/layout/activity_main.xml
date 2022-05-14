@@ -10,7 +10,7 @@
         android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="UserActivity!"
+        android:text="MVP!"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -31,7 +31,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btn_livedata" />
 
-
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="android11(R)沙箱机制"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_hook_ams" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

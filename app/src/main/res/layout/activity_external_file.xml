@@ -4,30 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".test.livedata.LiveDataActivity">
-
+    tools:context=".test.file.ExternalFileActivity">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_post_non_sticky"
+        android:id="@+id/btn_create"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="发送非粘性事件到总线"
+        android:text="创建"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_non_sticky"
+        android:id="@+id/btn_del"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="跳转"
+        android:text="删除"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_post_non_sticky" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_create" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_post_sticky"
+        android:id="@+id/btn_update"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="发送粘性事件到总线"
+        android:text="更新"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_non_sticky" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_del" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_query"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="查询"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_update" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
