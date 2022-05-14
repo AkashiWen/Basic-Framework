@@ -4,7 +4,7 @@ import android.net.Uri
 import java.io.File
 
 data class FileResponse(
-    private val isSuccess: Boolean,
-    private val uri: Uri?,
-    private val file: File?
+    val isSuccess: Boolean,
+    val uri: Uri?,
+    val file: File?
 )

@@ -7,7 +7,7 @@ import android.os.Build
 import android.provider.MediaStore
 import android.util.Log
 import androidx.annotation.RequiresApi
-import com.akashi.common.file.r.BaseRequest
+import com.akashi.common.file.r.BaseFileRequest
 import com.akashi.common.file.r.FileResponse
 import com.akashi.common.file.r.annotation.DBField
 import com.akashi.common.file.r.api.IFile
@@ -16,11 +16,11 @@ import com.akashi.common.file.r.api.IFile
  * api > 29
  */
 @RequiresApi(Build.VERSION_CODES.Q)
-class MediaStoreAccessImpl private constructor() : IFile {
+class FileStoreQImpl private constructor() : IFile {
 
     companion object {
         private val instance by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) {
-            MediaStoreAccessImpl()
+            FileStoreQImpl()
         }
 
         fun instance() = instance
@@ -28,11 +28,14 @@ class MediaStoreAccessImpl private constructor() : IFile {
         const val AUDIO = "Audio"
         const val VIDEO = "Video"
         const val IMAGE = "Pictures"
-
-        //        const val DOCUMENT = "Documents"
         const val DOWNLOADS = "Downloads"
+        //        const val DOCUMENT = "Documents"
     }
 
+    /**
+     * key: type from BaseFileRequest
+     * value: like MediaStore.Audio.Media.EXTERNAL_CONTENT_URI
+     */
     private val map = mutableMapOf<String, Uri>()
 
     init {
@@ -43,35 +46,39 @@ class MediaStoreAccessImpl private constructor() : IFile {
         map[DOWNLOADS] = MediaStore.Downloads.EXTERNAL_CONTENT_URI
     }
 
-    override fun <T : BaseRequest> query(context: Context, request: T): FileResponse {
+    override fun <T : BaseFileRequest> query(context: Context, request: T): FileResponse {
         TODO("Not yet implemented")
     }
 
-    override fun <T : BaseRequest> create(context: Context, request: T): FileResponse {
+    override fun <T : BaseFileRequest> create(context: Context, request: T): FileResponse {
         val uri = map[request.type] ?: throw Exception("uri not found")
         val contentResolver = context.contentResolver
         // request -> contentValues
         val contentValues = convertToContentValues(request)
         val resUri = contentResolver.insert(uri, contentValues)
-        return FileResponse(resUri != null, resUri, null)
+        return FileResponse(true, resUri, null)
     }
 
-    override fun <T : BaseRequest> copy(context: Context, request: T): FileResponse {
+    override fun <T : BaseFileRequest> copy(context: Context, request: T): FileResponse {
         TODO("Not yet implemented")
     }
 
-    override fun <T : BaseRequest> renameTo(context: Context, request: T, where: T): FileResponse {
+    override fun <T : BaseFileRequest> renameTo(
+        context: Context,
+        request: T,
+        where: T
+    ): FileResponse {
         TODO("Not yet implemented")
     }
 
-    override fun <T : BaseRequest> delete(context: Context, request: T): FileResponse {
+    override fun <T : BaseFileRequest> delete(context: Context, request: T): FileResponse {
         TODO("Not yet implemented")
     }
 
     /**
      * 反射解析并转换
      */
-    private fun convertToContentValues(request: BaseRequest): ContentValues {
+    private fun convertToContentValues(request: BaseFileRequest): ContentValues {
         // result
         val contentValues = ContentValues()
 
