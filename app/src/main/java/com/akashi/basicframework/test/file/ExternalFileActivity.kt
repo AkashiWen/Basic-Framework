@@ -16,6 +16,8 @@ import com.akashi.common.file.r.BaseFileRequest
 import com.akashi.common.file.r.factory.getIFile
 import java.io.IOException
 
+const val IMAGE_DISPLAY_NAME = "avatar_me.png"
+
 class ExternalFileActivity : AppCompatActivity() {
 
     lateinit var tvResponse: TextView
@@ -26,8 +28,10 @@ class ExternalFileActivity : AppCompatActivity() {
         this.checkFileStoragePermission()
 
         findViewById<AppCompatButton>(R.id.btn_create).clickJitter { createPicture() }
-        findViewById<AppCompatButton>(R.id.btn_del).clickJitter { }
-        findViewById<AppCompatButton>(R.id.btn_update).clickJitter { }
+        findViewById<AppCompatButton>(R.id.btn_del).clickJitter { delete() }
+        findViewById<AppCompatButton>(R.id.btn_update).clickJitter {
+            update("avatar_updated_${System.currentTimeMillis()}.png")
+        }
         findViewById<AppCompatButton>(R.id.btn_query).clickJitter { query() }
 
         tvResponse = findViewById(R.id.tv_response)
@@ -43,14 +47,32 @@ class ExternalFileActivity : AppCompatActivity() {
         toast("$response")
     }
 
-    private fun delete() {}
+    private fun delete() {
+        ImageRequest("xxx.png").apply {
+            this.displayName = IMAGE_DISPLAY_NAME
+        }.let {
+            getIFile(it).delete(this, it)
+        }.let {
+            tvResponse.text = "$it"
+        }
+    }
 
-    private fun update() {}
+    private fun update(newName: String) {
+        val where = ImageRequest("xxx.png").apply {
+            this.displayName = IMAGE_DISPLAY_NAME
+        }
+        val set = ImageRequest("yyy.png").apply {
+            this.displayName = newName
+        }
+        getIFile(where).renameTo(this, set, where).let {
+            tvResponse.text = "$it"
+        }
+    }
 
     private fun query() {
         ImageRequest("xxx.png").apply {
             this.path = "chatroom"
-            this.displayName = "avatar_me.png"
+            this.displayName = IMAGE_DISPLAY_NAME
         }.let {
             getIFile(it).query(this, it)
         }.let {

@@ -16,7 +16,7 @@ import com.akashi.common.file.r.api.IFile
 /**
  * api > 29
  */
-@RequiresApi(Build.VERSION_CODES.Q)
+@RequiresApi(Build.VERSION_CODES.R)
 class FileStoreQImpl private constructor() : IFile {
 
     companion object {
@@ -84,11 +84,16 @@ class FileStoreQImpl private constructor() : IFile {
         request: T,
         where: T
     ): FileResponse {
-        TODO("Not yet implemented")
+        val uri = this.query(context, where).uri ?: return FileResponse(false)
+        val contentValues = convertToContentValues(request)
+        context.contentResolver.update(uri, contentValues, null, null)
+        return FileResponse(true)
     }
 
     override fun <T : BaseFileRequest> delete(context: Context, request: T): FileResponse {
-        TODO("Not yet implemented")
+        val uri = this.query(context, request).uri ?: return FileResponse(false)
+        context.contentResolver.delete(uri, null)
+        return FileResponse(true)
     }
 
 

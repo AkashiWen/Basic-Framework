@@ -12,7 +12,7 @@ import java.io.File
 
 fun getIFile(baseFileRequest: BaseFileRequest): IFile {
 
-    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
         if (!Environment.isExternalStorageLegacy()) {
             setFileType(baseFileRequest)
             FileStoreQImpl.instance()
@@ -33,7 +33,7 @@ fun setFile(baseFileRequest: BaseFileRequest) {
 /**
  * 根据类型，放入不同的系统文件夹
  */
-@RequiresApi(Build.VERSION_CODES.Q)
+@RequiresApi(Build.VERSION_CODES.R)
 private fun setFileType(baseFileRequest: BaseFileRequest) {
     val fullPath = baseFileRequest.absPath
 

@@ -18,7 +18,7 @@ class ImageRequest(absPath: String) : BaseFileRequest(absPath) {
             if (field.isNotEmpty()) {
                 return "${Environment.DIRECTORY_PICTURES}/${field}/"
             }
-            return Environment.DIRECTORY_PICTURES
+            return ""
         }
 
     @DBField(MediaStore.Downloads.DISPLAY_NAME)

@@ -16,7 +16,7 @@ open class FileRequest(absPath: String = "${Environment.DIRECTORY_DOWNLOADS}/unn
             if (field.isNotBlank()) {
                 return "${Environment.DIRECTORY_DOWNLOADS}/${field}/"
             }
-            return Environment.DIRECTORY_DOWNLOADS
+            return ""
         }
 
     @DBField(MediaStore.Downloads.DISPLAY_NAME)
