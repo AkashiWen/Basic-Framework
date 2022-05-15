@@ -14,7 +14,12 @@ class ImageRequest(absPath: String) : BaseFileRequest(absPath) {
     @RequiresApi(Build.VERSION_CODES.Q)
     @DBField(MediaStore.Downloads.RELATIVE_PATH)
     var path: String = ""
-        get() = "${Environment.DIRECTORY_PICTURES}/${field}"
+        get() {
+            if (field.isNotEmpty()) {
+                return "${Environment.DIRECTORY_PICTURES}/${field}/"
+            }
+            return Environment.DIRECTORY_PICTURES
+        }
 
     @DBField(MediaStore.Downloads.DISPLAY_NAME)
     var displayName: String = ""

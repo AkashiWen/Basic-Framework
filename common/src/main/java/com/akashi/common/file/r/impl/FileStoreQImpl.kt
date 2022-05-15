@@ -1,5 +1,6 @@
 package com.akashi.common.file.r.impl
 
+import android.content.ContentUris
 import android.content.ContentValues
 import android.content.Context
 import android.net.Uri
@@ -47,15 +48,30 @@ class FileStoreQImpl private constructor() : IFile {
     }
 
     override fun <T : BaseFileRequest> query(context: Context, request: T): FileResponse {
-        TODO("Not yet implemented")
+        val uri = map[request.type] ?: throw Exception("uri not found")
+        val contentValues = convertToContentValues(request)
+        val projection = arrayOf(MediaStore.Images.Media._ID)
+        val condition = Condition(contentValues)
+        context.contentResolver.query(
+            uri, projection, condition.where, condition.whereArgs, null
+        )?.let {
+            var queryUri: Uri? = null
+            if (it.moveToFirst()) {
+                queryUri = ContentUris.withAppendedId(uri, it.getLong(0))
+            }
+            it.close()
+            queryUri
+        }?.let {
+            return FileResponse(true, it, null)
+        }
+        return FileResponse(false)
     }
 
     override fun <T : BaseFileRequest> create(context: Context, request: T): FileResponse {
         val uri = map[request.type] ?: throw Exception("uri not found")
-        val contentResolver = context.contentResolver
         // request -> contentValues
         val contentValues = convertToContentValues(request)
-        val resUri = contentResolver.insert(uri, contentValues)
+        val resUri = context.contentResolver.insert(uri, contentValues)
         return FileResponse(true, resUri, null)
     }
 
@@ -74,6 +90,7 @@ class FileStoreQImpl private constructor() : IFile {
     override fun <T : BaseFileRequest> delete(context: Context, request: T): FileResponse {
         TODO("Not yet implemented")
     }
+
 
     /**
      * 反射解析并转换
@@ -107,5 +124,35 @@ class FileStoreQImpl private constructor() : IFile {
             }
         }
         return contentValues
+    }
+
+    /**
+     * query: select * from xxx where a=? and b=? and c=?...
+     */
+    private inner class Condition(contentValues: ContentValues) {
+
+        var whereArgs: Array<String>
+        var where: String
+
+        init {
+            val sb = StringBuilder().apply {
+                this.append("1=1 ") // trick avoid handle first 'and'
+            }
+            val list = mutableListOf<String>()
+
+            val iterator = contentValues.valueSet().iterator()
+            while (iterator.hasNext()) {
+                val entry = iterator.next()
+                val key = entry.key
+                val value = entry.value as? String
+                if (!value.isNullOrBlank()) {
+                    sb.append("and $key=?")
+                    list.add(value)
+                }
+            }
+
+            this.where = sb.toString()
+            this.whereArgs = list.toTypedArray()
+        }
     }
 }

@@ -12,7 +12,12 @@ open class FileRequest(absPath: String = "${Environment.DIRECTORY_DOWNLOADS}/unn
     @RequiresApi(Build.VERSION_CODES.Q)
     @DBField(MediaStore.Downloads.RELATIVE_PATH)
     var path: String = ""
-        get() = "${Environment.DIRECTORY_DOWNLOADS}/${field}"
+        get() {
+            if (field.isNotBlank()) {
+                return "${Environment.DIRECTORY_DOWNLOADS}/${field}/"
+            }
+            return Environment.DIRECTORY_DOWNLOADS
+        }
 
     @DBField(MediaStore.Downloads.DISPLAY_NAME)
     var displayName: String = ""
