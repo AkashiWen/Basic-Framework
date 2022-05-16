@@ -3,7 +3,7 @@ package com.akashi.basicframework
 import android.app.Application
 import android.util.Log
 import android.widget.Toast
-import com.akashi.basicframework.hook.LoginActivity
+import com.akashi.basicframework.test.hook.LoginActivity
 import com.akashi.common.hook.HookUtil
 
 class MyApplication : Application() {
