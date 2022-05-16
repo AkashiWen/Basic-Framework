@@ -12,7 +12,6 @@ import com.akashi.common.actions.clickJitter
 import com.akashi.common.file.checkFileStoragePermission
 import com.akashi.common.file.r.FileRequest
 import com.akashi.common.file.r.ImageRequest
-import com.akashi.common.file.r.BaseFileRequest
 import com.akashi.common.file.r.factory.getIFile
 import java.io.IOException
 

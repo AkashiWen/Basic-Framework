@@ -1,8 +1,6 @@
-package com.akashi.common.file.r.api
+package com.akashi.common.file.api
 
 import android.content.Context
-import com.akashi.common.file.r.BaseFileRequest
-import com.akashi.common.file.r.FileResponse
 
 interface IFile {
     fun <T : BaseFileRequest> query(context: Context, request: T): FileResponse

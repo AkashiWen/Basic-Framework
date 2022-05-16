@@ -1,4 +1,4 @@
-package com.akashi.common.file.r
+package com.akashi.common.file.api
 
 import java.io.File
 

@@ -8,10 +8,10 @@ import android.os.Build
 import android.provider.MediaStore
 import android.util.Log
 import androidx.annotation.RequiresApi
-import com.akashi.common.file.r.BaseFileRequest
-import com.akashi.common.file.r.FileResponse
+import com.akashi.common.file.api.BaseFileRequest
+import com.akashi.common.file.api.FileResponse
 import com.akashi.common.file.r.annotation.DBField
-import com.akashi.common.file.r.api.IFile
+import com.akashi.common.file.api.IFile
 
 /**
  * api > 29

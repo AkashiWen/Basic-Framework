@@ -3,8 +3,8 @@ package com.akashi.common.file.r.factory
 import android.os.Build
 import android.os.Environment
 import androidx.annotation.RequiresApi
-import com.akashi.common.file.r.BaseFileRequest
-import com.akashi.common.file.r.api.IFile
+import com.akashi.common.file.api.BaseFileRequest
+import com.akashi.common.file.api.IFile
 import com.akashi.common.file.r.impl.FileStoreImpl
 import com.akashi.common.file.r.impl.FileStoreQImpl
 import java.io.File
