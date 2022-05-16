@@ -33,6 +33,8 @@ hook点2： ``mVersion``
 
 ## 3. 外置存储卡存储框架
 
-### 3.1 针对Android11 R 30
+### 3.1 针对Android11 R 30 外置卡沙箱机制
 
-`/file/ScopedStorage.kt`
+`/file/FileAccessFactory.kt`
+
+工厂模式根据api版本提供具体实现类

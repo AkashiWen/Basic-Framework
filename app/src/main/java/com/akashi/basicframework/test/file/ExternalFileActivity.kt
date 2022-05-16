@@ -12,7 +12,7 @@ import com.akashi.common.actions.clickJitter
 import com.akashi.common.file.checkFileStoragePermission
 import com.akashi.common.file.r.FileRequest
 import com.akashi.common.file.r.ImageRequest
-import com.akashi.common.file.r.factory.getIFile
+import com.akashi.common.file.getIFile
 import java.io.IOException
 
 const val IMAGE_DISPLAY_NAME = "avatar_me.png"
