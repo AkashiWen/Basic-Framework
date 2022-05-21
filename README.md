@@ -141,6 +141,8 @@ SafetyCheckTask <= PrivacyTask,
 
 ### 4. 对象注入 Koin dagger2 Hlit 等
 
+Koin
+
 ### 5. 组件化
 
 ### 6. hook工具

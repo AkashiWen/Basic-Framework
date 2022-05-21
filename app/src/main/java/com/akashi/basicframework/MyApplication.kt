@@ -1,9 +1,10 @@
 package com.akashi.basicframework
 
 import android.app.Application
-import android.util.Log
 import android.widget.Toast
 import com.akashi.basicframework.test.hook.LoginActivity
+import com.akashi.common.actions.initLog
+import com.akashi.common.actions.logE
 import com.akashi.common.hook.HookUtil
 import com.akashi.common.watchers.registerOurLifecycleCallback
 
@@ -17,6 +18,9 @@ class MyApplication : Application() {
         super.onCreate()
         instance = this
 
+        // 日志工具
+        initLog()
+
         // 监听Activity生命周期
         this.registerOurLifecycleCallback()
 
@@ -27,7 +31,7 @@ class MyApplication : Application() {
                 .hookTo(LoginActivity::class.java)
                 .hookAMS()
         } catch (e: Throwable) {
-            Log.e("TAG", "onCreate: ${e.printStackTrace()}")
+            logE(e)
         }
     }
 }
