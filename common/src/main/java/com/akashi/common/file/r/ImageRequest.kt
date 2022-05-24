@@ -1,5 +1,6 @@
 package com.akashi.common.file.r
 
+import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
@@ -12,7 +13,7 @@ class ImageRequest(absPath: String) : BaseFileRequest(absPath) {
     @DBField(MediaStore.Images.Media.MIME_TYPE)
     var mimeType: String = "image/png"
 
-    @RequiresApi(Build.VERSION_CODES.Q)
+    @SuppressLint("InlinedApi")
     @DBField(MediaStore.Downloads.RELATIVE_PATH)
     var path: String = ""
         get() {
