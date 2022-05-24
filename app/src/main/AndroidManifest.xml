@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BasicFramework">
         <activity
+            android:name=".test.crash.AfterCrashRestartActivity"
+            android:exported="false" />
+        <activity
             android:name=".test.crash.CrashActivity"
             android:exported="false" />
         <activity
