@@ -149,6 +149,16 @@ Koin
 
 `/common/hook/HookUtil.kt`
 
-### 7. 插件化、热修复
+### 7. 插件化
 
 `/javassist/CustomKotlinPlugin`
+
+### 8. 全局Crash&Native&ANR异常捕获
+
+[iqiyi/xcrash](https://github.com/iqiyi/xCrash/blob/master/README.zh-CN.md)
+
+#### Tombstone 文件默认将被写入到 Context#getFilesDir() + "/tombstones" 目录。（通常在： /data/data/PACKAGE_NAME/files/tombstones）
+处理思路：
+- app启动后10秒，开始逐个上传tombstones目录下的崩溃文件，上传成功一个删除一个。
+- app启动后10秒内发生的崩溃，在callback中立刻尝试投递，投递成功则删除。
+
