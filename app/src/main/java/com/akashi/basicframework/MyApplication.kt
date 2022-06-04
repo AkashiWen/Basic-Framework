@@ -3,8 +3,8 @@ package com.akashi.basicframework
 import android.app.Application
 import android.content.Context
 import com.akashi.basicframework.crash.restartApp
-import com.akashi.test.crash.AfterCrashRestartActivity
-import com.akashi.test.hook.LoginActivity
+import com.akashi.testing.crash.AfterCrashRestartActivity
+import com.akashi.testing.hook.LoginActivity
 import com.akashi.common.hook.HookUtil
 import com.akashi.common.logger.Logger
 import com.akashi.common.logger.logD

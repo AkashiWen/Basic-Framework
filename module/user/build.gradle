@@ -1,26 +1,17 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-//    id 'com.akashi.javassist' version '1.0.0'
 }
-
-apply plugin: 'com.akashi.javassist'
 
 android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.akashi.basicframework"
         minSdk 21
         targetSdk 31
-        versionCode 1
-        versionName "1.0"
-
-        ndk {
-            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
-        }
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -36,28 +27,13 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
-    viewBinding {
-        enabled = true
-    }
 }
 
 dependencies {
 
-    implementation(project(":lib:common"))
-    implementation(project(":lib:opensource"))
-    implementation(project(':module:testing'))
-    implementation(project(':module:user'))
-
     implementation 'androidx.core:core-ktx:1.6.0'
     implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-
-    // crash handler
-    implementation 'com.iqiyi.xcrash:xcrash-android-lib:3.1.0'
-
-
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
