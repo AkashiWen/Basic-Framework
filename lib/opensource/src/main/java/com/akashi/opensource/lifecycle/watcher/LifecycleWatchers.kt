@@ -1,23 +1,28 @@
-package com.akashi.common.watchers
+package com.akashi.opensource.lifecycle.watcher
 
 import android.app.Activity
 import android.app.Application
 import android.os.Bundle
-import com.akashi.common.actions.logD
+import com.akashi.common.logger.logD
+import com.akashi.common.util.noOpDelegate
 
 /**
  * 监听Activity生命周期
  */
-fun Application.registerOurLifecycleCallback() {
-    this.registerActivityLifecycleCallbacks(lifecycleCallbacks)
+fun Application.registerOurLifecycleCallback(
+    callbacks: Application.ActivityLifecycleCallbacks = mDefaultLifecycleCallbacks
+) {
+    this.registerActivityLifecycleCallbacks(callbacks)
 }
 
 
 /**
- * sample for noOpDelegate
  * 为ActivityLifecycleCallbacks实现动态代理
+ * 默认实现的Application生命周期监听
+ *
+ * 根据需要创建自定义的
  */
-private val lifecycleCallbacks =
+private val mDefaultLifecycleCallbacks =
     object : Application.ActivityLifecycleCallbacks by noOpDelegate() {
         override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
             logD("${activity.localClassName} created", "LifecycleWatcher")

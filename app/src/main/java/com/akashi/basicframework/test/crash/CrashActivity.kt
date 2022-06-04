@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import com.akashi.basicframework.R
-import com.akashi.common.actions.clickJitter
+import com.akashi.common.util.clickJitter
 import xcrash.XCrash
 
 class CrashActivity : AppCompatActivity() {

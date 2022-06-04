@@ -1,4 +1,4 @@
-package com.akashi.common.actions
+package com.akashi.common.util
 
 import android.content.Intent
 import android.view.View

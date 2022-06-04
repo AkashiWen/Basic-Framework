@@ -1,4 +1,4 @@
-package com.akashi.common.date
+package com.akashi.common.util
 
 import android.os.Build
 import java.time.LocalDateTime
