@@ -1,4 +1,4 @@
-package com.akashi.basicframework
+package com.akashi.common.base.mvp
 
 interface IBaseModel<B> {
 

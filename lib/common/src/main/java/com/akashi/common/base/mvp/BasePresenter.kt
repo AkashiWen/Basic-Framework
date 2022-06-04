@@ -1,10 +1,9 @@
-package com.akashi.basicframework
+package com.akashi.common.base.mvp
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.OnLifecycleEvent
-import com.akashi.basicframework.view.IBaseView
 import java.lang.ref.WeakReference
 
 /**

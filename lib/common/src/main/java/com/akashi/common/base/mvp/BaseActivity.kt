@@ -1,8 +1,7 @@
-package com.akashi.basicframework
+package com.akashi.common.base.mvp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.akashi.basicframework.view.IBaseView
 
 /**
  * BaseActivity

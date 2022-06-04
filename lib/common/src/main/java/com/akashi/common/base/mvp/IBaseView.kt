@@ -1,4 +1,4 @@
-package com.akashi.basicframework.view
+package com.akashi.common.base.mvp
 
 /**
  * 基础UI逻辑
