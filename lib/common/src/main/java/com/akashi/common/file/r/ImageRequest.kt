@@ -1,10 +1,8 @@
 package com.akashi.common.file.r
 
 import android.annotation.SuppressLint
-import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
-import androidx.annotation.RequiresApi
 import com.akashi.common.file.api.BaseFileRequest
 import com.akashi.common.file.r.annotation.DBField
 
