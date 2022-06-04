@@ -2,6 +2,7 @@ package com.akashi.common.util
 
 import android.content.Intent
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.akashi.common.constant.LoginConstant
 
@@ -22,4 +23,8 @@ fun AppCompatActivity.intentTo(activity: Class<out AppCompatActivity>, needsLogi
         }
         startActivity(this)
     }
+}
+
+fun toast(str: String) {
+    Toast.makeText(getContext(), str, Toast.LENGTH_SHORT).show()
 }

@@ -1,14 +1,14 @@
-package com.akashi.basicframework.test.livedata
+package com.akashi.test.livedata
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
-import com.akashi.basicframework.R
-import com.akashi.basicframework.toast
 import com.akashi.common.util.clickJitter
 import com.akashi.common.util.intentTo
 import com.akashi.common.util.now
+import com.akashi.common.util.toast
 import com.akashi.opensource.livedata.LiveDataBus
+import com.akashi.test.R
 
 class LiveDataActivity : AppCompatActivity() {
 

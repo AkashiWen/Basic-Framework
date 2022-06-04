@@ -1,4 +1,4 @@
-package com.akashi.basicframework.test.file
+package com.akashi.test.file
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -6,20 +6,20 @@ import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
-import com.akashi.basicframework.R
-import com.akashi.basicframework.toast
-import com.akashi.common.util.clickJitter
 import com.akashi.common.file.checkFileStoragePermission
+import com.akashi.common.file.getIFile
 import com.akashi.common.file.r.FileRequest
 import com.akashi.common.file.r.ImageRequest
-import com.akashi.common.file.getIFile
+import com.akashi.common.util.clickJitter
+import com.akashi.common.util.toast
+import com.akashi.test.R
 import java.io.IOException
 
 const val IMAGE_DISPLAY_NAME = "avatar_me.png"
 
 class ExternalFileActivity : AppCompatActivity() {
 
-    lateinit var tvResponse: TextView
+    private lateinit var tvResponse: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

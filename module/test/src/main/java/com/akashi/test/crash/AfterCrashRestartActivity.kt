@@ -1,8 +1,8 @@
-package com.akashi.basicframework.test.crash
+package com.akashi.test.crash
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.akashi.basicframework.R
+import androidx.appcompat.app.AppCompatActivity
+import com.akashi.test.R
 
 /**
  * 崩溃后启动的页面

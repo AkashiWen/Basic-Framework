@@ -1,4 +1,4 @@
-package com.akashi.basicframework.test.hook
+package com.akashi.test.hook
 
 import android.content.ComponentName
 import android.content.Intent
@@ -7,11 +7,11 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
-import com.akashi.basicframework.R
-import com.akashi.basicframework.toast
-import com.akashi.common.util.clickJitter
 import com.akashi.common.constant.LoginConstant.STR_ORIGIN_INTENT
 import com.akashi.common.constant.isLogin
+import com.akashi.common.util.clickJitter
+import com.akashi.common.util.toast
+import com.akashi.test.R
 
 /**
  * 没有注册到AndroidManifest.xml

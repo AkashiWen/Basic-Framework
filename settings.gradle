@@ -19,7 +19,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "Basic Framework"
 include ':app'
-include ':lib:common'
 include ':javassist'
-include ':module'
+include ':lib:common'
 include ':lib:opensource'
+include ':module:test'

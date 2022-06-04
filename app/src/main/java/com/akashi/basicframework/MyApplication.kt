@@ -2,16 +2,15 @@ package com.akashi.basicframework
 
 import android.app.Application
 import android.content.Context
-import android.widget.Toast
 import com.akashi.basicframework.crash.restartApp
-import com.akashi.basicframework.test.crash.AfterCrashRestartActivity
-import com.akashi.basicframework.test.hook.LoginActivity
+import com.akashi.test.crash.AfterCrashRestartActivity
+import com.akashi.test.hook.LoginActivity
 import com.akashi.common.hook.HookUtil
 import com.akashi.common.logger.Logger
-import com.akashi.common.logger.timber.mTimberLog
 import com.akashi.common.logger.logD
 import com.akashi.common.logger.logE
 import com.akashi.common.logger.logW
+import com.akashi.common.util.toast
 import com.akashi.opensource.lifecycle.watcher.registerOurLifecycleCallback
 import xcrash.ICrashCallback
 import xcrash.XCrash
@@ -73,8 +72,4 @@ class MyApplication : Application() {
             logE(e)
         }
     }
-}
-
-fun toast(str: String) {
-    Toast.makeText(MyApplication.instance, str, Toast.LENGTH_SHORT).show()
 }

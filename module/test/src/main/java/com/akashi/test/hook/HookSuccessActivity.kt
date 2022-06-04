@@ -1,8 +1,8 @@
-package com.akashi.basicframework.test.hook
+package com.akashi.test.hook
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.akashi.basicframework.R
+import androidx.appcompat.app.AppCompatActivity
+import com.akashi.test.R
 
 /**
  * 没有登录状态是无法进入这里的

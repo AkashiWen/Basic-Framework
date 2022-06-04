@@ -14,25 +14,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BasicFramework">
         <activity
-            android:name=".test.crash.AfterCrashRestartActivity"
+            android:name="com.akashi.test.crash.AfterCrashRestartActivity"
             android:exported="false" />
         <activity
-            android:name=".test.crash.CrashActivity"
+            android:name="com.akashi.test.crash.CrashActivity"
             android:exported="false" />
         <activity
-            android:name=".test.file.ExternalFileActivity"
+            android:name="com.akashi.test.file.ExternalFileActivity"
             android:exported="false" />
         <activity
-            android:name=".test.hook.HookSuccessActivity"
+            android:name="com.akashi.test.hook.HookSuccessActivity"
             android:exported="false" />
         <activity
-            android:name=".test.hook.LoginActivity"
+            android:name="com.akashi.test.hook.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".test.livedata.LiveDataActivity"
+            android:name="com.akashi.test.livedata.LiveDataActivity"
             android:exported="false" />
         <activity
-            android:name=".test.livedata.TestNonStickyLiveDataActivity"
+            android:name="com.akashi.test.livedata.TestNonStickyLiveDataActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

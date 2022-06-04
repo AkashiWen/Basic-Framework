@@ -1,9 +1,9 @@
-package com.akashi.basicframework.test.livedata
+package com.akashi.test.livedata
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.akashi.basicframework.databinding.ActivityTestNonStickyLiveDataBinding
+import androidx.appcompat.app.AppCompatActivity
 import com.akashi.opensource.livedata.LiveDataBus
+import com.akashi.test.databinding.ActivityTestNonStickyLiveDataBinding
 
 /**
  * 测试非粘性事件，这个Activity会观察liveData，但期望第一次的值不被接收
