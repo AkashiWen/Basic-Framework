@@ -1,4 +1,4 @@
-package com.akashi.common.livedata
+package com.akashi.opensource.livedata
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData

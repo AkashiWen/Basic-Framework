@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import com.akashi.basicframework.R
 import com.akashi.basicframework.toast
-import com.akashi.common.actions.clickJitter
+import com.akashi.common.util.clickJitter
 import com.akashi.common.file.checkFileStoragePermission
 import com.akashi.common.file.r.FileRequest
 import com.akashi.common.file.r.ImageRequest

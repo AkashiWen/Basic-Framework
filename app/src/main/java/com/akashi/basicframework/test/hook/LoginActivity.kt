@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import com.akashi.basicframework.R
 import com.akashi.basicframework.toast
-import com.akashi.common.actions.clickJitter
+import com.akashi.common.util.clickJitter
 import com.akashi.common.constant.LoginConstant.STR_ORIGIN_INTENT
 import com.akashi.common.constant.isLogin
 

@@ -5,10 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import com.akashi.basicframework.R
 import com.akashi.basicframework.toast
-import com.akashi.common.actions.clickJitter
-import com.akashi.common.actions.intentTo
-import com.akashi.common.date.now
-import com.akashi.common.livedata.LiveDataBus
+import com.akashi.common.util.clickJitter
+import com.akashi.common.util.intentTo
+import com.akashi.common.util.now
+import com.akashi.opensource.livedata.LiveDataBus
 
 class LiveDataActivity : AppCompatActivity() {
 

@@ -6,12 +6,13 @@ import android.widget.Toast
 import com.akashi.basicframework.crash.restartApp
 import com.akashi.basicframework.test.crash.AfterCrashRestartActivity
 import com.akashi.basicframework.test.hook.LoginActivity
-import com.akashi.common.actions.initLog
-import com.akashi.common.actions.logD
-import com.akashi.common.actions.logE
-import com.akashi.common.actions.logW
 import com.akashi.common.hook.HookUtil
-import com.akashi.common.watchers.registerOurLifecycleCallback
+import com.akashi.common.logger.Logger
+import com.akashi.common.logger.timber.mTimberLog
+import com.akashi.common.logger.logD
+import com.akashi.common.logger.logE
+import com.akashi.common.logger.logW
+import com.akashi.opensource.lifecycle.watcher.registerOurLifecycleCallback
 import xcrash.ICrashCallback
 import xcrash.XCrash
 import java.io.File
@@ -57,7 +58,7 @@ class MyApplication : Application() {
         instance = this
 
         // 日志工具
-        initLog()
+        Logger.choseLogger(Logger.TIMBER)?.init()
 
         // 监听Activity生命周期
         this.registerOurLifecycleCallback()
