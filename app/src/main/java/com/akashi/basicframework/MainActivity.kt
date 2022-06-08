@@ -3,13 +3,13 @@ package com.akashi.basicframework
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
-import com.akashi.basicframework.test.livedata.LiveDataActivity
+import com.akashi.testing.livedata.LiveDataActivity
 import com.akashi.basicframework.business.user.UserActivity
-import com.akashi.basicframework.test.crash.CrashActivity
-import com.akashi.basicframework.test.file.ExternalFileActivity
-import com.akashi.basicframework.test.hook.HookSuccessActivity
+import com.akashi.testing.crash.CrashActivity
+import com.akashi.testing.hook.HookSuccessActivity
 import com.akashi.common.util.clickJitter
 import com.akashi.common.util.intentTo
+import com.akashi.testing.file.ExternalFileActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

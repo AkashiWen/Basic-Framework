@@ -1,6 +1,6 @@
 package com.akashi.basicframework.business.user.model
 
-import com.akashi.basicframework.IBaseModel
+import com.akashi.common.base.mvp.IBaseModel
 import com.akashi.basicframework.business.user.bean.User
 
 class UserModel : IBaseModel<User> {

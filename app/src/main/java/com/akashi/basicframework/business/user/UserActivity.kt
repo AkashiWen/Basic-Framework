@@ -2,7 +2,7 @@ package com.akashi.basicframework.business.user
 
 import android.util.Log
 import android.widget.Toast
-import com.akashi.basicframework.BaseActivity
+import com.akashi.common.base.mvp.BaseActivity
 import com.akashi.basicframework.business.user.bean.User
 import com.akashi.basicframework.business.user.presenter.UserPresenter
 import com.akashi.basicframework.view.UserView
