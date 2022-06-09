@@ -16,8 +16,25 @@ fun View.clickJitter(block: () -> Unit) {
     }
 }
 
-fun AppCompatActivity.intentTo(activity: Class<out AppCompatActivity>, needsLogin: Boolean = false) {
+fun AppCompatActivity.intentTo(
+    activity: Class<out AppCompatActivity>,
+    needsLogin: Boolean = false
+) {
     Intent(this, activity).run {
+        if (needsLogin) {
+            putExtra(LoginConstant.STR_NEEDS_LOGIN, true)
+        }
+        startActivity(this)
+    }
+}
+
+/**
+ * 使用inline和reified关键字优化泛型使用
+ */
+inline fun <reified T : AppCompatActivity> AppCompatActivity.intentTo(
+    needsLogin: Boolean = false
+) {
+    Intent(this, T::class.java).run {
         if (needsLogin) {
             putExtra(LoginConstant.STR_NEEDS_LOGIN, true)
         }
