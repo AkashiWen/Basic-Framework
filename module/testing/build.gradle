@@ -1,14 +1,24 @@
 plugins {
-    id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
 }
 
+if (rootProject.ext.module.is_application) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+
 android {
-    compileSdk 32
+    compileSdk rootProject.ext.android.compileSdkVersion
 
     defaultConfig {
-        minSdk 21
-        targetSdk 32
+        if (rootProject.ext.module.is_application) {
+            applicationId "com.akashi.testing"
+            versionCode rootProject.ext.android.versionCode
+            versionName rootProject.ext.android.versionName
+        }
+        minSdk rootProject.ext.android.minSdkVersion
+        targetSdk rootProject.ext.android.targetSdkVersion
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -30,6 +40,16 @@ android {
 
     viewBinding {
         enabled = true
+    }
+
+    sourceSets {
+        main {
+            if (rootProject.ext.module.is_application) {
+                manifest.srcFile "src/main/AndroidManifest.xml"
+            } else {
+                manifest.srcFile "src/main/module/AndroidManifest.xml"
+            }
+        }
     }
 }
 

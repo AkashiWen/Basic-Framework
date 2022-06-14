@@ -2,6 +2,7 @@ package com.akashi.common.util
 
 import android.annotation.SuppressLint
 import android.app.Application
+import com.akashi.common.logger.logE
 
 private var mApplicationContext: Application? = null
 
@@ -13,10 +14,10 @@ fun getContext(): Application? {
         aClass.getMethod("currentApplication").also {
             it.isAccessible = true
         }.let {
-            mApplicationContext = it.invoke(null, null) as? Application
+            mApplicationContext = it.invoke(null) as? Application
         }
     } catch (e: Throwable) {
-
+        logE(e)
     }
     return mApplicationContext
 }

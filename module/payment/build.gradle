@@ -1,0 +1,60 @@
+plugins {
+    id 'org.jetbrains.kotlin.android'
+}
+
+if (rootProject.ext.module.is_application) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
+
+android {
+    compileSdk rootProject.ext.android.compileSdkVersion
+
+    defaultConfig {
+        if (rootProject.ext.module.is_application) {
+            applicationId "com.akashi.payment"
+            versionCode rootProject.ext.android.versionCode
+            versionName rootProject.ext.android.versionName
+        }
+        minSdk rootProject.ext.android.minSdkVersion
+        targetSdk rootProject.ext.android.targetSdkVersion
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    sourceSets {
+        main {
+            if (rootProject.ext.module.is_application) {
+                manifest.srcFile "src/main/AndroidManifest.xml"
+            } else {
+                manifest.srcFile "src/main/module/AndroidManifest.xml"
+            }
+        }
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}
