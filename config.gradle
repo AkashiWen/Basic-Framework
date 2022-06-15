@@ -8,6 +8,13 @@ ext {
     ]
     module = [
             // 组件状态切换
-            is_application: true
+            is_application: false
+    ]
+    our_dependencies = [
+            other: [
+                    ":lib:common",
+                    ":lib:opensource",
+                    ":lib:route"
+            ]
     ]
 }

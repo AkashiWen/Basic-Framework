@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BasicFramework">
         <activity
+            android:name=".MainRouteActivity"
+            android:exported="false" />
+        <activity
             android:name="com.akashi.testing.crash.AfterCrashRestartActivity"
             android:exported="false" />
         <activity

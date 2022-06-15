@@ -16,10 +16,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // MVP架构
         findViewById<AppCompatButton>(R.id.btn).clickJitter {
             intentTo<UserActivity>()
         }
 
+        // 组件化
+        findViewById<AppCompatButton>(R.id.btn_route).clickJitter {
+            intentTo<MainRouteActivity>()
+        }
+
+        // livedata
         findViewById<AppCompatButton>(R.id.btn_livedata).clickJitter {
             intentTo<LiveDataActivity>()
         }

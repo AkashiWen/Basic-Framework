@@ -3,7 +3,12 @@
     package="com.akashi.testing">
 
     <application>
-        <activity android:name=".hook.HookSuccessActivity" />
+        <activity
+            android:name=".TestingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".hook.HookSuccessActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
