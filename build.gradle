@@ -1,6 +1,7 @@
 buildscript {
     dependencies {
-        classpath 'com.akashi.kotlin_plugin:modify:1.0.0'
+        // javassist local repo
+//        classpath 'com.akashi.kotlin_plugin:modify:1.0.0'
     }
 }
 
@@ -15,6 +16,16 @@ plugins {
 
 // 引入config.gradle
 apply from: 'config.gradle'
+
+allprojects {
+    afterEvaluate {
+        // TODO
+//        println("==== configration: $name ====")
+//        def task = this.extensions.findByName("android")
+//        println(" ---> TODO ${task}")
+    }
+}
+
 
 task clean(type: Delete) {
     delete rootProject.buildDir

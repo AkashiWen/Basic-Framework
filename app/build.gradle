@@ -1,9 +1,16 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    // 自定义插件
+    id 'plugin.akashi.hello-kotlin'
 }
 
-apply plugin: 'com.akashi.kotlin_plugin'
+// 自定义插件extension使用
+// ./gradlew hello
+hello {
+    greeting = "hola"
+    name = "Akashi"
+}
 
 android {
     compileSdk rootProject.ext.android.compileSdkVersion

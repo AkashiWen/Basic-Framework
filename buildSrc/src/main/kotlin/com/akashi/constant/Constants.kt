@@ -1,4 +1,4 @@
-
+package com.akashi.constant
 
 object Flavors {
     object Debug {

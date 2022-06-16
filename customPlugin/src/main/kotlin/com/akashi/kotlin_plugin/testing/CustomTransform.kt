@@ -1,4 +1,4 @@
-package com.akashi.kotlin_plugin.transforms
+package com.akashi.kotlin_plugin.testing
 
 import com.android.build.api.transform.Format
 import com.android.build.api.transform.QualifiedContent
