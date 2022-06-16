@@ -1,6 +1,8 @@
 plugins {
-    // 使用kotlin编写插件
+    // 使用groovy编写插件
     id 'java'
+    // 使用kotlin编写插件 错误：找不到
+//    id 'org.jetbrains.kotlin.jvm'
 }
 
 java {
