@@ -9,7 +9,7 @@ plugins {
 // ./gradlew hello
 hello {
     greeting = "hola"
-    name = "Akashi"
+    name = "akashi"
 }
 
 android {

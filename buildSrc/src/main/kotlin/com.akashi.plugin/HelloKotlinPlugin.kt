@@ -13,16 +13,22 @@ import java.util.*
  */
 class HelloKotlinPlugin : Plugin<Project> {
 
+    companion object {
+        const val EXTENSION_NAME = "hello"
+    }
+
     override fun apply(project: Project): Unit = project.run {
         println("---- Akashi Kotlin Plugin v1 ----")
 
-        val hkExt = project.extensions.create<HelloKotlinExtension>("HelloKotlinExtension")
-        project.extensions.add("hello", hkExt)
+        val hkExt = project.extensions.create<HelloKotlinExtension>(EXTENSION_NAME)
 
         // 注册task到gradle
-        tasks.register("hello") {
+        tasks.register(EXTENSION_NAME) {
             doLast {
-                println("==> ${hkExt.greeting.capitalize(Locale.ROOT)}, ${hkExt.name.capitalize(Locale.ROOT)}!")
+                println(
+                    "==> ${hkExt.greeting.capitalize(Locale.ROOT)}, " +
+                            "${hkExt.name.capitalize(Locale.ROOT)}!"
+                )
             }
         }
     }
