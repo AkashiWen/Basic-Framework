@@ -1,6 +1,6 @@
 buildscript {
     dependencies {
-        classpath 'com.akashi.javassist:modify:1.0.0'
+        classpath 'com.akashi.kotlin_plugin:modify:1.0.0'
     }
 }
 

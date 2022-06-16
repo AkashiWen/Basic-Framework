@@ -3,7 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
-apply plugin: 'com.akashi.javassist'
+apply plugin: 'com.akashi.kotlin_plugin'
 
 android {
     compileSdk rootProject.ext.android.compileSdkVersion
