@@ -10,11 +10,9 @@ ext {
             // 组件状态切换
             is_application: false
     ]
-    our_dependencies = [
-            other: [
-                    ":lib:common",
-                    ":lib:opensource",
-                    ":lib:route"
-            ]
+    library = [
+            ":lib:common",
+            ":lib:opensource",
+            ":lib:route"
     ]
 }

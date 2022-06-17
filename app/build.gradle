@@ -55,7 +55,7 @@ dependencies {
     implementation(project(':module:payment'))
 
     // 公共组件
-    rootProject.ext.our_dependencies.other.each {
+    rootProject.ext.library.each {
         implementation(project(it))
     }
 

@@ -1,8 +1,11 @@
 package com.akashi.user
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.akashi.route.USER_PROFILE
+import com.alibaba.android.arouter.facade.annotation.Route
 
+@Route(path = USER_PROFILE)
 class UserProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
