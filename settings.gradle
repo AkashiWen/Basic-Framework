@@ -1,8 +1,8 @@
 pluginManagement {
     repositories {
-        maven {
-            url uri("${rootProject.projectDir}/repo")
-        }
+//        maven {
+//            url uri("${rootProject.projectDir}/repo")
+//        }
         gradlePluginPortal()
         google()
         mavenCentral()
@@ -19,7 +19,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "Basic Framework"
 include ':app'
-include ':customPlugin'
 include ':lib:common'
 include ':lib:opensource'
 include ':lib:route'

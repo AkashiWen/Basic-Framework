@@ -19,7 +19,6 @@ apply from: 'config.gradle'
 
 allprojects {
     afterEvaluate {
-        // TODO
 //        println("==== configration: $name ====")
 //        def task = this.extensions.findByName("android")
 //        println(" ---> TODO ${task}")
