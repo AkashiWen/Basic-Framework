@@ -3,8 +3,6 @@ package com.akashi.basicframework
 import android.app.Application
 import android.content.Context
 import com.akashi.basicframework.crash.restartApp
-import com.akashi.testing.crash.AfterCrashRestartActivity
-import com.akashi.testing.hook.LoginActivity
 import com.akashi.common.hook.HookUtil
 import com.akashi.common.logger.Logger
 import com.akashi.common.logger.logD
@@ -12,6 +10,9 @@ import com.akashi.common.logger.logE
 import com.akashi.common.logger.logW
 import com.akashi.common.util.toast
 import com.akashi.opensource.lifecycle.watcher.registerOurLifecycleCallback
+import com.akashi.route.RouterManager
+import com.akashi.testing.crash.AfterCrashRestartActivity
+import com.akashi.testing.hook.LoginActivity
 import xcrash.ICrashCallback
 import xcrash.XCrash
 import java.io.File
@@ -50,6 +51,10 @@ class MyApplication : Application() {
             setAnrCallback(xCrashCallback)
             setNativeCallback(xCrashCallback)
         })
+
+        // 组件路由初始化
+        RouterManager.instance.init(this)
+
     }
 
     override fun onCreate() {
@@ -71,5 +76,10 @@ class MyApplication : Application() {
         } catch (e: Throwable) {
             logE(e)
         }
+    }
+
+    override fun onTerminate() {
+        super.onTerminate()
+        RouterManager.instance.destroy()
     }
 }

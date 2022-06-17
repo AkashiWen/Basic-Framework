@@ -1,20 +1,26 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-//    id 'com.akashi.javassist' version '1.0.0'
+    // 自定义插件
+    id 'plugin.akashi.hello-kotlin'
 }
 
-apply plugin: 'com.akashi.javassist'
+// 自定义插件extension使用
+// ./gradlew hello
+hello {
+    greeting = "hola"
+    name = "akashi"
+}
 
 android {
-    compileSdk 31
+    compileSdk rootProject.ext.android.compileSdkVersion
 
     defaultConfig {
         applicationId "com.akashi.basicframework"
-        minSdk 21
-        targetSdk 31
-        versionCode 1
-        versionName "1.0"
+        minSdk rootProject.ext.android.minSdkVersion
+        targetSdk rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
 
         ndk {
             abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
@@ -44,12 +50,16 @@ android {
 
 dependencies {
 
-    implementation(project(":lib:common"))
-    implementation(project(":lib:opensource"))
     implementation(project(':module:testing'))
     implementation(project(':module:user'))
+    implementation(project(':module:payment'))
 
-    implementation 'androidx.core:core-ktx:1.6.0'
+    // 公共组件
+    rootProject.ext.library.each {
+        implementation(project(it))
+    }
+
+    implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'

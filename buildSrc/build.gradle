@@ -1,9 +1,0 @@
-plugins {
-    // 使用kotlin编写插件
-    id 'java'
-}
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
-}

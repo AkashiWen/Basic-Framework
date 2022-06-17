@@ -151,7 +151,7 @@ Koin
 
 ### 7. 插件化
 
-`/javassist/CustomKotlinPlugin`
+`/kotlin_plugin/CustomKotlinPlugin`
 
 ### 8. 全局Crash&Native&ANR异常捕获
 

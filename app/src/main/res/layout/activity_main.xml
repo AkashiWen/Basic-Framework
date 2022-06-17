@@ -15,12 +15,20 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_route"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="组件化"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn" />
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_livedata"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="LiveDataActivity"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn" />
+        app:layout_constraintTop_toBottomOf="@id/btn_route" />
 
 
     <androidx.appcompat.widget.AppCompatButton
