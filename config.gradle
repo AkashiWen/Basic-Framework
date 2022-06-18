@@ -1,4 +1,5 @@
 ext {
+    // 统一sdk版本
     android = [
             compileSdkVersion: 31,
             minSdkVersion    : 21,
@@ -6,13 +7,21 @@ ext {
             versionCode      : 1,
             versionName      : '1.0',
     ]
+
     module = [
             // 组件状态切换
-            is_application: false
+            is_application: false,
     ]
+
+    module_annotation = [
+            'com.alibaba:arouter-compiler:1.5.2'
+    ]
+
+    // 公共组件
     library = [
             ":lib:common",
             ":lib:opensource",
             ":lib:route"
     ]
+
 }

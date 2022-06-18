@@ -1,5 +1,6 @@
 plugins {
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 if (rootProject.ext.module.is_application) {
@@ -8,7 +9,6 @@ if (rootProject.ext.module.is_application) {
     apply plugin: 'com.android.library'
 }
 
-apply plugin: 'kotlin-kapt'
 
 kapt {
     arguments {
@@ -63,8 +63,10 @@ dependencies {
     rootProject.ext.library.each {
         implementation(project(it))
     }
-
-    kapt 'com.alibaba:arouter-compiler:1.5.2'
+    // module必须的注解处理
+    rootProject.ext.module_annotation.each {
+        kapt(it)
+    }
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.3.0'

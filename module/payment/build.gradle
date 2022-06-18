@@ -1,11 +1,18 @@
 plugins {
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 if (rootProject.ext.module.is_application) {
     apply plugin: 'com.android.application'
 } else {
     apply plugin: 'com.android.library'
+}
+
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
 }
 
 android {
@@ -53,6 +60,10 @@ dependencies {
     // 公共组件
     rootProject.ext.library.each {
         implementation(project(it))
+    }
+    // module必须的注解处理
+    rootProject.ext.module_annotation.each {
+        kapt it
     }
 
     implementation 'androidx.core:core-ktx:1.7.0'

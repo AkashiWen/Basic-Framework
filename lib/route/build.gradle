@@ -32,6 +32,7 @@ android {
 
 dependencies {
 
+    // 只依赖arouter的api，注解处理在其他module完成
     api 'com.alibaba:arouter-api:1.5.2'
 
     implementation 'androidx.core:core-ktx:1.7.0'
