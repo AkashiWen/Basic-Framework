@@ -67,6 +67,9 @@ dependencies {
     // crash handler
     implementation 'com.iqiyi.xcrash:xcrash-android-lib:3.1.0'
 
+    // leak
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.9.1'
+
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
