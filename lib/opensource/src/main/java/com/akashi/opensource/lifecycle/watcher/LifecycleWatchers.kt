@@ -27,10 +27,10 @@ private const val TAG = "LifecycleWatcher"
 private val mDefaultLifecycleCallbacks =
     object : Application.ActivityLifecycleCallbacks by noOpDelegate() {
         override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
-            Log.i(TAG, "onActivityCreated: ${activity.localClassName} created")
+            Log.i(TAG, "lifecycle callback: ${activity.localClassName} created")
         }
 
         override fun onActivityDestroyed(activity: Activity) {
-            Log.i(TAG, "onActivityCreated: ${activity.localClassName} destroyed")
+            Log.i(TAG, "lifecycle callback: ${activity.localClassName} destroyed")
         }
     }

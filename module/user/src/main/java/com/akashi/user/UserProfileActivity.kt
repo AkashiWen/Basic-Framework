@@ -11,4 +11,5 @@ class UserProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_profile)
     }
+
 }
