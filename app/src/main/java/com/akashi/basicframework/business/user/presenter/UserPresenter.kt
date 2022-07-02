@@ -1,10 +1,13 @@
 package com.akashi.basicframework.business.user.presenter
 
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.lifecycleScope
 import com.akashi.basicframework.business.user.bean.User
 import com.akashi.basicframework.business.user.model.UserModel
 import com.akashi.basicframework.view.UserView
 import com.akashi.common.base.mvp.BasePresenter
 import com.akashi.common.base.mvp.IBaseModel
+import kotlinx.coroutines.launch
 
 class UserPresenter : BasePresenter<UserView>() {
 
@@ -25,12 +28,12 @@ class UserPresenter : BasePresenter<UserView>() {
     }
 
 
-    override fun onCreate() {
-        super.onCreate()
+    override fun onCreate(owner: LifecycleOwner) {
+        super.onCreate(owner)
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroy(owner: LifecycleOwner) {
+        super.onDestroy(owner)
     }
 
 }

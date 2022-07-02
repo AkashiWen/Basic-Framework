@@ -22,10 +22,10 @@ open class BasePresenter<V : IBaseView> : LifecycleObserver {
         LifecycleEventObserver { owner, event ->
             when (event) {
                 Lifecycle.Event.ON_CREATE -> {
-                    onCreate()
+                    onCreate(owner)
                 }
                 Lifecycle.Event.ON_DESTROY -> {
-                    onDestroy()
+                    onDestroy(owner)
                 }
                 else -> {}
             }
@@ -49,11 +49,11 @@ open class BasePresenter<V : IBaseView> : LifecycleObserver {
         view = null
     }
 
-    protected open fun onCreate() {
+    protected open fun onCreate(owner: LifecycleOwner) {
         logI("Presenter onCreate: ---> ${now()}")
     }
 
-    protected open fun onDestroy() {
+    protected open fun onDestroy(owner: LifecycleOwner) {
         logI("Presenter onDestroy: ---> ${now()}")
     }
 
