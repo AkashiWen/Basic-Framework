@@ -3,18 +3,20 @@ package com.akashi.basicframework
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
-import com.akashi.testing.livedata.LiveDataActivity
 import com.akashi.basicframework.business.user.UserActivity
-import com.akashi.testing.crash.CrashActivity
-import com.akashi.testing.hook.HookSuccessActivity
 import com.akashi.common.util.clickJitter
 import com.akashi.common.util.intentTo
+import com.akashi.testing.crash.CrashActivity
 import com.akashi.testing.file.ExternalFileActivity
+import com.akashi.testing.hook.HookSuccessActivity
+import com.akashi.testing.livedata.LiveDataActivity
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         // MVP架构
         findViewById<AppCompatButton>(R.id.btn).clickJitter {

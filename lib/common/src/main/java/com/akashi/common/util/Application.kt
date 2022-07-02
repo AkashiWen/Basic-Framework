@@ -94,6 +94,10 @@ fun AppCompatActivity.requestPermissions(vararg permissions: String) {
             map.entries.forEach {
                 logD("permission: ${it.key}, granted: ${it.value}")
             }
-        }.launch(permissions.copyOfRange(deniedIndex, permissions.size))
+        }.launch(
+            permissions.filterIndexed { index, _ ->
+                index > deniedIndex
+            }.toTypedArray()
+        )
     }
 }
