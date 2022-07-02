@@ -1,9 +1,11 @@
 package com.akashi.common.base.mvp
 
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.OnLifecycleEvent
+import com.akashi.common.logger.logI
+import com.akashi.common.util.now
 import java.lang.ref.WeakReference
 
 /**
@@ -16,6 +18,28 @@ open class BasePresenter<V : IBaseView> : LifecycleObserver {
 
     protected var view: WeakReference<V>? = null
 
+    private val mEventObserver by lazy {
+        LifecycleEventObserver { owner, event ->
+            when (event) {
+                Lifecycle.Event.ON_CREATE -> {
+                    onCreate()
+                }
+                Lifecycle.Event.ON_DESTROY -> {
+                    onDestroy()
+                }
+                else -> {}
+            }
+        }
+    }
+
+    fun attachOwner(owner: LifecycleOwner) {
+        owner.lifecycle.addObserver(mEventObserver)
+    }
+
+    fun detachOwner(owner: LifecycleOwner) {
+        owner.lifecycle.removeObserver(mEventObserver)
+    }
+
     fun attachView(view: V) {
         this.view = WeakReference(view)
     }
@@ -25,27 +49,12 @@ open class BasePresenter<V : IBaseView> : LifecycleObserver {
         view = null
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-    protected open fun onCreate(owner: LifecycleOwner) {
+    protected open fun onCreate() {
+        logI("Presenter onCreate: ---> ${now()}")
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_START)
-    protected open fun onStart(owner: LifecycleOwner) {
+    protected open fun onDestroy() {
+        logI("Presenter onDestroy: ---> ${now()}")
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    protected open fun onPause(owner: LifecycleOwner) {
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
-    protected open fun onStop(owner: LifecycleOwner) {
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    protected open fun onResume(owner: LifecycleOwner) {
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    protected open fun onDestroy(owner: LifecycleOwner) {
-    }
 }

@@ -1,12 +1,10 @@
 package com.akashi.basicframework.business.user.presenter
 
-import android.util.Log
-import androidx.lifecycle.LifecycleOwner
-import com.akashi.common.base.mvp.BasePresenter
 import com.akashi.basicframework.business.user.bean.User
-import com.akashi.common.base.mvp.IBaseModel
 import com.akashi.basicframework.business.user.model.UserModel
 import com.akashi.basicframework.view.UserView
+import com.akashi.common.base.mvp.BasePresenter
+import com.akashi.common.base.mvp.IBaseModel
 
 class UserPresenter : BasePresenter<UserView>() {
 
@@ -26,17 +24,13 @@ class UserPresenter : BasePresenter<UserView>() {
         })
     }
 
-    /**
-     * lifecycle touch
-     */
-    override fun onCreate(owner: LifecycleOwner) {
-        super.onCreate(owner)
-        Log.i("UserPresenter", ":onCreate()")
+
+    override fun onCreate() {
+        super.onCreate()
     }
 
-    override fun onDestroy(owner: LifecycleOwner) {
-        super.onDestroy(owner)
-        Log.i("UserPresenter", ":onDestroy()")
+    override fun onDestroy() {
+        super.onDestroy()
     }
 
 }
