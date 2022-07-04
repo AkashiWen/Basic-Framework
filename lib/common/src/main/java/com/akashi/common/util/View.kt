@@ -16,6 +16,6 @@ fun View.clickJitter(block: () -> Unit) {
     }
 }
 
-fun toast(str: String) {
+fun toast(str: String?) {
     Toast.makeText(getContext(), str, Toast.LENGTH_SHORT).show()
 }
