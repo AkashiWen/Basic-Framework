@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import com.akashi.common.base.mvvm.BaseViewModel
 import kotlinx.coroutines.delay
 
-class UserViewModel : BaseViewModel() {
+class UserVM : BaseViewModel() {
 
     val mUser = MutableLiveData<User>()
 
