@@ -3,6 +3,8 @@ package com.akashi.common.base.mvvm
 import android.accounts.NetworkErrorException
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.akashi.common.base.api.Response
+import com.akashi.common.base.api.ResultError
 import com.akashi.common.logger.logE
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -186,29 +188,5 @@ abstract class BaseViewModel : ViewModel() {
         }
     }
 
-    /**
-     * Response model for request
-     */
-    data class Response<T>(val message: String = "", val code: Int = NO_CONTENT, val data: T?) {
-        companion object {
-            const val OK = 200
-            const val NO_CONTENT = 204
-            const val CLIENT_ERROR = 400
-            const val REQUIRES_LOGIN = 401
-            const val SERVER_ERROR = 500
-        }
-
-        fun isFail() = this.code >= CLIENT_ERROR
-        fun isSuccess() = this.code == OK || this.code == NO_CONTENT
-
-    }
-
-    /**
-     * Exception model for request
-     */
-    data class ResultError(
-        val e: Throwable? = null,
-        var toast: String? = null
-    )
 
 }
