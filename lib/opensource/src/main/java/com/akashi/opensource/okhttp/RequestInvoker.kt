@@ -1,4 +1,4 @@
-package com.akashi.opensource.network
+package com.akashi.opensource.okhttp
 
 import okhttp3.*
 import java.io.IOException
