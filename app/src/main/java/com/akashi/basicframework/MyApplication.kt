@@ -13,6 +13,8 @@ import com.akashi.opensource.lifecycle.watcher.registerOurLifecycleCallback
 import com.akashi.route.RouterManager
 import com.akashi.testing.crash.AfterCrashRestartActivity
 import com.akashi.testing.hook.LoginActivity
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.startKoin
 import xcrash.ICrashCallback
 import xcrash.XCrash
 import java.io.File
@@ -51,6 +53,12 @@ class MyApplication : Application() {
             setAnrCallback(xCrashCallback)
             setNativeCallback(xCrashCallback)
         })
+
+        // Koin注入初始化
+        startKoin {
+            androidContext(this@MyApplication)
+            modules(modules)
+        }
 
         // 组件路由初始化
         RouterManager.instance.init(this)

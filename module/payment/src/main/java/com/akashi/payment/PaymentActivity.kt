@@ -17,8 +17,6 @@ class PaymentActivity : AppCompatActivity() {
 
         findViewById<AppCompatButton>(R.id.btn_to_user_route).clickJitter {
             // intent to UserProfileActivity
-            // 按照Kotlin配置方式，依然报
-            // ARouter::There is no route match the path [/user/activity], in group [user][ ]
             RouterManager.instance.navigationTo(USER_PROFILE)
         }
     }

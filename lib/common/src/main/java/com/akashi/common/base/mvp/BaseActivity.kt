@@ -28,9 +28,11 @@ abstract class BaseActivity<P : BasePresenter<V>, V : IBaseView> : AppCompatActi
 
         this.presenter = createPresenter()
 
+
         this.presenter.let {
             // 连接当前Presenter和当前View
             it.attachView(this)
+            it.attachOwner(this)
             // 添加观察者
             lifecycle.addObserver(it)
         }
@@ -42,7 +44,10 @@ abstract class BaseActivity<P : BasePresenter<V>, V : IBaseView> : AppCompatActi
     override fun onDestroy() {
         super.onDestroy()
         // 基础父类统一处理泄漏问题
-        this.presenter.detachView()
+        this.presenter.let {
+            it.detachView()
+            it.detachOwner(this)
+        }
         // 注销
         unRegister()
     }
