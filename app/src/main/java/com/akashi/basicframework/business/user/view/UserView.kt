@@ -1,4 +1,4 @@
-package com.akashi.basicframework.view
+package com.akashi.basicframework.business.user.view
 
 import com.akashi.basicframework.business.user.bean.User
 import com.akashi.common.base.mvp.IBaseView

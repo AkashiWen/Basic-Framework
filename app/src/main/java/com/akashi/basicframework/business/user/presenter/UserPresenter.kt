@@ -1,13 +1,11 @@
 package com.akashi.basicframework.business.user.presenter
 
 import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.lifecycleScope
 import com.akashi.basicframework.business.user.bean.User
 import com.akashi.basicframework.business.user.model.UserModel
-import com.akashi.basicframework.view.UserView
+import com.akashi.basicframework.business.user.view.UserView
 import com.akashi.common.base.mvp.BasePresenter
 import com.akashi.common.base.mvp.IBaseModel
-import kotlinx.coroutines.launch
 
 class UserPresenter : BasePresenter<UserView>() {
 

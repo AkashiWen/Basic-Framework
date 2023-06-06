@@ -5,7 +5,7 @@ import android.util.Log
 import android.widget.Toast
 import com.akashi.basicframework.business.user.bean.User
 import com.akashi.basicframework.business.user.presenter.UserPresenter
-import com.akashi.basicframework.view.UserView
+import com.akashi.basicframework.business.user.view.UserView
 import com.akashi.common.base.mvp.BaseActivity
 import com.akashi.common.logger.logI
 
