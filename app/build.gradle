@@ -46,6 +46,7 @@ android {
     viewBinding {
         enabled = true
     }
+    namespace 'com.akashi.basicframework'
 }
 
 dependencies {
@@ -59,8 +60,8 @@ dependencies {
         implementation(project(it))
     }
 
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
     // crash handler
     implementation 'com.iqiyi.xcrash:xcrash-android-lib:3.1.0'
