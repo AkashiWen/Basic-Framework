@@ -32,6 +32,7 @@ android {
         // Avoiding including the debug infrastructure in the resulting APK
         resources.excludes += "DebugProbesKt.bin"
     }
+    namespace 'com.akashi.common'
 }
 
 var koin_version= "3.2.0"
