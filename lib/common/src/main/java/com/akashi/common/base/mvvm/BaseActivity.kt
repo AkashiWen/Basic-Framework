@@ -1,11 +1,19 @@
 package com.akashi.common.base.mvvm
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.annotation.LayoutRes
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
+import androidx.viewbinding.ViewBinding
 import com.akashi.common.util.toast
 import org.koin.androidx.scope.ScopeActivity
 
-abstract class BaseActivity(@LayoutRes layoutId: Int) : ScopeActivity(layoutId) {
+abstract class BaseActivity<T : ViewBinding>(private val inflate: (LayoutInflater) -> T) :
+    AppCompatActivity() {
+
+    lateinit var binding: T
 
     abstract fun initView()
     abstract fun initViewModel()
@@ -25,6 +33,8 @@ abstract class BaseActivity(@LayoutRes layoutId: Int) : ScopeActivity(layoutId) 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = inflate(layoutInflater)
+        setContentView(binding.root)
 
         initView()
         initViewModel()

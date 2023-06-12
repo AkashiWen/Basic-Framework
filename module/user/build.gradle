@@ -29,6 +29,12 @@ android {
         minSdk rootProject.ext.android.minSdkVersion
         targetSdk rootProject.ext.android.targetSdkVersion
 
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -55,6 +61,11 @@ android {
             }
         }
     }
+
+    viewBinding {
+        enabled = true
+    }
+
     namespace 'com.akashi.user'
 }
 
@@ -66,12 +77,18 @@ dependencies {
     }
     // module必须的注解处理
     rootProject.ext.module_annotation.each {
-        kapt(it)
+        kapt it
+    }
+    // module通用导入
+    rootProject.ext.dependencies.each {
+        implementation it
     }
 
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.databinding:databinding-runtime:8.0.2'
+
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }

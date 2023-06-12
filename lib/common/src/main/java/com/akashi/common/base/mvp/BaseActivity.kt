@@ -24,14 +24,14 @@ abstract class BaseActivity<P : BasePresenter<V>, V : IBaseView> : AppCompatActi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        this as V
+
 
         this.presenter = createPresenter()
 
 
         this.presenter.let {
             // 连接当前Presenter和当前View
-            it.attachView(this)
+            it.attachView(this as V)
             it.attachOwner(this)
             // 添加观察者
             lifecycle.addObserver(it)

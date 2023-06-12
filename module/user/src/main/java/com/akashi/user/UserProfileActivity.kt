@@ -6,12 +6,13 @@ import com.akashi.common.base.mvvm.BaseViewModel
 import com.akashi.common.util.clickJitter
 import com.akashi.common.util.toast
 import com.akashi.route.USER_PROFILE
+import com.akashi.user.databinding.ActivityUserProfileBinding
 import com.akashi.user.vm.UserVM
 import com.alibaba.android.arouter.facade.annotation.Route
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 @Route(path = USER_PROFILE)
-class UserProfileActivity : BaseActivity(R.layout.activity_user_profile) {
+class UserProfileActivity : BaseActivity<ActivityUserProfileBinding>(ActivityUserProfileBinding::inflate) {
 
     private val mUserVM by viewModel<UserVM>()
     
