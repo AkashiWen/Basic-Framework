@@ -43,11 +43,13 @@ var koin_version= "3.2.0"
 
 dependencies {
 
-
 //    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
 //    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.databinding:databinding-runtime:8.0.2'
+
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
+    api "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1"
 
     // coroutine
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"

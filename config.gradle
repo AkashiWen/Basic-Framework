@@ -1,9 +1,9 @@
 ext {
     // 统一sdk版本
     android = [
-            compileSdkVersion: 31,
+            compileSdkVersion: 33,
             minSdkVersion    : 21,
-            targetSdkVersion : 31,
+            targetSdkVersion : 33,
             versionCode      : 1,
             versionName      : '1.0',
     ]
@@ -15,6 +15,10 @@ ext {
 
     module_annotation = [
             'com.alibaba:arouter-compiler:1.5.2'
+    ]
+
+    dependencies = [
+            'com.alibaba:arouter-api:1.5.2'
     ]
 
     // 公共组件
