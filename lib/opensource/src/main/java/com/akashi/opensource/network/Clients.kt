@@ -14,5 +14,6 @@ val okHttpClient = OkHttpClient.Builder()
 
 val retrofit: Retrofit = Retrofit.Builder()
     .baseUrl("https://api.github.com/")
+    .client(okHttpClient)
     .addConverterFactory(GsonConverterFactory.create())
     .build()
