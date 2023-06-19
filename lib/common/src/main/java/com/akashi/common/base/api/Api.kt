@@ -3,7 +3,7 @@ package com.akashi.common.base.api
 /**
  * Response model for request
  */
-data class Response<T>(val message: String = "", val code: Int = NO_CONTENT, val data: T?) {
+data class AResponse<T>(val message: String = "", val code: Int = NO_CONTENT, val data: T?) {
     companion object {
         const val OK = 200
         const val NO_CONTENT = 204

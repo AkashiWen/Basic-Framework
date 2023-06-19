@@ -3,7 +3,7 @@ package com.akashi.common.base.mvvm
 import android.accounts.NetworkErrorException
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.akashi.common.base.api.Response
+import com.akashi.common.base.api.AResponse
 import com.akashi.common.base.api.ResultError
 import com.akashi.common.logger.logE
 import kotlinx.coroutines.Job
@@ -112,8 +112,8 @@ abstract class BaseViewModel : ViewModel() {
         private val timeout = 10L * 1000
 
         internal var onStart: (suspend () -> Boolean?)? = null
-        internal lateinit var onRequest: (suspend () -> Response<T>)
-        internal var onResponse: (suspend (Response<T>) -> Unit)? = null
+        internal lateinit var onRequest: (suspend () -> AResponse<T>)
+        internal var onResponse: (suspend (AResponse<T>) -> Unit)? = null
         internal var onResponseEmpty: (suspend () -> Boolean?)? = null
         internal var onError: (suspend (ResultError) -> Boolean?)? = null
         internal var onFinally: (suspend () -> Boolean?)? = null
@@ -122,11 +122,11 @@ abstract class BaseViewModel : ViewModel() {
             this.onStart = onStart
         }
 
-        fun onRequest(request: suspend () -> Response<T>) {
+        fun onRequest(request: suspend () -> AResponse<T>) {
             this.onRequest = request
         }
 
-        fun onResponse(onResponse: suspend (Response<T>) -> Unit) {
+        fun onResponse(onResponse: suspend (AResponse<T>) -> Unit) {
             this.onResponse = onResponse
         }
 
@@ -163,7 +163,7 @@ abstract class BaseViewModel : ViewModel() {
             }
         }
 
-        private suspend fun callback(response: Response<T>?) {
+        private suspend fun callback(response: AResponse<T>?) {
             if (response == null || response.isFail()) {
                 val errorMessage =
                     "Client or Server error: ${response?.code} / ${response?.message}"
@@ -180,11 +180,11 @@ abstract class BaseViewModel : ViewModel() {
             onError?.invoke(ResultError(e, toast))
         }
 
-        private fun isEmpty(response: Response<T>?): Boolean {
-            val responseData = response?.data
-            return response == null || responseData == null ||
+        private fun isEmpty(aResponse: AResponse<T>?): Boolean {
+            val responseData = aResponse?.data
+            return aResponse == null || responseData == null ||
                     (responseData is List<*> && responseData.isEmpty()) ||
-                    response.code == Response.NO_CONTENT
+                    aResponse.code == AResponse.NO_CONTENT
         }
     }
 

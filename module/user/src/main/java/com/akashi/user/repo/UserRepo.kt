@@ -1,20 +1,21 @@
 package com.akashi.user.repo
 
-import com.akashi.common.base.api.Response
+import com.akashi.common.base.api.AResponse
+import com.akashi.opensource.network.BaseRepo
 import com.akashi.opensource.network.api.MeApi
-import com.akashi.user.model.User
+import com.akashi.opensource.network.model.UserModel
+import com.akashi.user.model.UserBean
 import kotlinx.coroutines.delay
 
-class UserRepo(private val meApi: MeApi) {
+class UserRepo(private val meApi: MeApi) : BaseRepo() {
 
-    suspend fun requestUser(): Response<User> {
+    suspend fun requestUser(): AResponse<UserBean> {
         delay(3000)
 
-//        meApi.fetchMe()
-
-        return Response(
-            code = Response.OK,
-            data = User(name = "Akashi", phone = 137)
-        )
+        meApi.fetchMe().apply {
+            return convertToAResponse(this) {
+                UserBean().convert(this.body())
+            }
+        }
     }
 }
