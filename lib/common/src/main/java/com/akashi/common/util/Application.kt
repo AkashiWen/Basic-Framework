@@ -4,12 +4,16 @@ import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.os.Build
+import android.os.Parcelable
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.akashi.common.constant.LoginConstant
 import com.akashi.common.logger.logD
 import com.akashi.common.logger.logE
+import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlin.coroutines.resume
 
 private var mApplicationContext: Application? = null
 
@@ -56,48 +60,38 @@ inline fun <reified T : AppCompatActivity> AppCompatActivity.intentTo(
 }
 
 /**
- * 申请单个权限
+ * 带参数的跳转
  */
-fun AppCompatActivity.requestPermission(permission: String) {
-    when (PackageManager.PERMISSION_DENIED) {
-        ContextCompat.checkSelfPermission(this, permission) -> {
-            logD("check permission: $permission ,already granted")
-        }
-        else -> {
-            registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
-                if (isGranted) {
-                    logD("grant permission: $permission success")
-                } else {
-                    logD("grant permission: $permission failed")
-                }
-            }.launch(permission)
-        }
+inline fun <reified T : AppCompatActivity> AppCompatActivity.intentTo(builder: Intent.() -> Unit = {}) {
+    Intent(this, T::class.java).run {
+        builder.invoke(this)
+        startActivity(this)
     }
 }
 
+
 /**
- * 申请多个权限
+ * 请求指定权限
+ *
+ * @param permission 权限名称，例如 Manifest.permission.CAMERA
+ * @return true：权限已经被授予；false：权限未被授予
  */
-fun AppCompatActivity.requestPermissions(vararg permissions: String) {
-    // 找到未授权索引
-    val deniedIndex = permissions.indexOfFirst {
-        ContextCompat.checkSelfPermission(this, it) == PackageManager.PERMISSION_DENIED
+suspend fun AppCompatActivity.requestPermission(permission: String): Boolean {
+    if (ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED) {
+        return true
     }
-    if (deniedIndex == -1) {
-        permissions.forEach {
-            logD("permission: $it already granted")
-        }
-    } else {
-        registerForActivityResult(
-            ActivityResultContracts.RequestMultiplePermissions()
-        ) { map ->
-            map.entries.forEach {
-                logD("permission: ${it.key}, granted: ${it.value}")
+
+    return suspendCancellableCoroutine { continuation ->
+
+        val permissionRequest =
+            registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+                if (isGranted) {
+                    continuation.resume(true)
+                } else {
+                    continuation.resume(false)
+                }
             }
-        }.launch(
-            permissions.filterIndexed { index, _ ->
-                index > deniedIndex
-            }.toTypedArray()
-        )
+
+        permissionRequest.launch(permission)
     }
 }
