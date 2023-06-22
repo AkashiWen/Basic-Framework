@@ -12,7 +12,10 @@ import androidx.core.content.ContextCompat
 import com.akashi.common.constant.LoginConstant
 import com.akashi.common.logger.logD
 import com.akashi.common.logger.logE
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.suspendCancellableCoroutine
+import java.util.ArrayList
 import kotlin.coroutines.resume
 
 private var mApplicationContext: Application? = null
@@ -94,4 +97,29 @@ suspend fun AppCompatActivity.requestPermission(permission: String): Boolean {
 
         permissionRequest.launch(permission)
     }
+}
+
+inline fun <reified T : Parcelable> Intent?.getJsonArrayExtra(key: String): ArrayList<T>? {
+
+    this?.getStringExtra(key)?.let {
+        return try {
+            val type = object : TypeToken<ArrayList<T>>() {}.type
+            Gson().fromJson(it, type)
+        } catch (e: Exception) {
+            logE(e)
+            null
+        }
+    } ?: return null
+}
+
+inline fun <reified T : Parcelable> Intent?.getJsonExtra(key: String): T? {
+
+    this?.getStringExtra(key)?.let {
+        return try {
+            Gson().fromJson(it, T::class.java)
+        } catch (e: Exception) {
+            logE(e)
+            null
+        }
+    } ?: return null
 }
