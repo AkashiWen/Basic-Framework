@@ -6,8 +6,10 @@ import androidx.lifecycle.viewModelScope
 import com.akashi.common.base.api.AResponse
 import com.akashi.common.base.api.ResultError
 import com.akashi.common.logger.logE
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeout
 
 abstract class BaseViewModel : ViewModel() {
@@ -145,34 +147,34 @@ abstract class BaseViewModel : ViewModel() {
         /**
          * start
          */
-        fun launch() = viewModelScope.launch {
+        fun launch() = viewModelScope.launch(Dispatchers.IO) {
             onStart?.invoke()
             try {
                 withTimeout(timeout) {
-                    val result = onRequest.invoke()
-                    if (isEmpty(result)) {
-                        onResponseEmpty?.invoke()
-                    } else {
-                        callback(result)
+                    val aResponse = onRequest.invoke()
+                    withContext(Dispatchers.Main) {
+                        if (aResponse.isFail()) {
+                            val errorMessage =
+                                "Client or Server error: ${aResponse.code} / ${aResponse.message}"
+                            callbackException(
+                                e = NetworkErrorException(errorMessage),
+                                toast = aResponse.message
+                            )
+                        } else if (isEmpty(aResponse)) {
+                            onResponseEmpty?.invoke()
+                        } else {
+                            onResponse?.invoke(aResponse)
+                        }
                     }
                 }
             } catch (e: Throwable) {
-                callbackException(e)
+                withContext(Dispatchers.Main) {
+                    callbackException(e)
+                }
             } finally {
-                onFinally?.invoke()
-            }
-        }
-
-        private suspend fun callback(response: AResponse<T>?) {
-            if (response == null || response.isFail()) {
-                val errorMessage =
-                    "Client or Server error: ${response?.code} / ${response?.message}"
-                callbackException(
-                    e = NetworkErrorException(errorMessage),
-                    toast = response?.message
-                )
-            } else {
-                onResponse?.invoke(response)
+                withContext(Dispatchers.Main) {
+                    onFinally?.invoke()
+                }
             }
         }
 
