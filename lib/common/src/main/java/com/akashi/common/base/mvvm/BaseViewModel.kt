@@ -19,6 +19,7 @@ abstract class BaseViewModel : ViewModel() {
         fun onApiSuccess()
         fun onApiEmpty()
         fun onApiError(e: Throwable?, toast: String?)
+        fun onUnAuthorized()
         fun onApiFinal()
     }
 
@@ -30,6 +31,8 @@ abstract class BaseViewModel : ViewModel() {
             if (e == null || toast.isNullOrEmpty()) return
             logE(e, toast)
         }
+
+        override fun onUnAuthorized() {}
 
         override fun onApiFinal() {}
     }
@@ -97,6 +100,13 @@ abstract class BaseViewModel : ViewModel() {
                 }
                 return@onError isHandled
             }
+            onUnAuthorized {
+                val isHandled = viewModelDsl.onUnAuthorized?.invoke()
+                if (isHandled != true) {
+                    mClientCallback?.onUnAuthorized()
+                }
+                return@onUnAuthorized isHandled
+            }
             onFinally {
                 val isHandled = viewModelDsl.onFinally?.invoke()
                 if (isHandled != true) {
@@ -117,6 +127,7 @@ abstract class BaseViewModel : ViewModel() {
         internal lateinit var onRequest: (suspend () -> AResponse<T>)
         internal var onResponse: (suspend (AResponse<T>) -> Unit)? = null
         internal var onResponseEmpty: (suspend () -> Boolean?)? = null
+        internal var onUnAuthorized: (suspend () -> Boolean?)? = null
         internal var onError: (suspend (ResultError) -> Boolean?)? = null
         internal var onFinally: (suspend () -> Boolean?)? = null
 
@@ -138,6 +149,10 @@ abstract class BaseViewModel : ViewModel() {
 
         fun onError(onError: (suspend (ResultError) -> Boolean?)?) {
             this.onError = onError
+        }
+
+        fun onUnAuthorized(onAuthorized: (suspend () -> Boolean?)?) {
+            this.onUnAuthorized = onAuthorized
         }
 
         fun onFinally(onFinally: (suspend () -> Boolean?)?) {

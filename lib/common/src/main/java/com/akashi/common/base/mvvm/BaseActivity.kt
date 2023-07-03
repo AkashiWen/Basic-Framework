@@ -28,6 +28,11 @@ abstract class BaseActivity<T : ViewBinding>(private val inflate: (LayoutInflate
                 super.onApiError(e, toast)
                 showError(toast)
             }
+
+            override fun onUnAuthorized() {
+                super.onUnAuthorized()
+                showLogin()
+            }
         }
     }
 
@@ -60,6 +65,10 @@ abstract class BaseActivity<T : ViewBinding>(private val inflate: (LayoutInflate
     protected open fun showEmpty() {}
     protected open fun showError(err: String?) {
         toast(err)
+    }
+
+    protected open fun showLogin() {
+
     }
 
 }
