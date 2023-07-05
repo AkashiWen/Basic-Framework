@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<AppCompatButton>(R.id.btn_hook_ams).clickJitter {
             // 如果没有登录过，就会自动跳转登录页面
-            intentTo<HookSuccessActivity>(true)
+//            intentTo<HookSuccessActivity>(true)
         }
 
         findViewById<AppCompatButton>(R.id.btn_file).clickJitter {
