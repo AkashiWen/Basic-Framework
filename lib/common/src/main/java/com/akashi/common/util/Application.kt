@@ -51,16 +51,16 @@ fun AppCompatActivity.intentTo(
 /**
  * 使用inline和reified关键字优化泛型使用
  */
-inline fun <reified T : AppCompatActivity> AppCompatActivity.intentTo(
-    needsLogin: Boolean = false
-) {
-    Intent(this, T::class.java).run {
-        if (needsLogin) {
-            putExtra(LoginConstant.STR_NEEDS_LOGIN, true)
-        }
-        startActivity(this)
-    }
-}
+//inline fun <reified T : AppCompatActivity> AppCompatActivity.intentTo(
+//    needsLogin: Boolean = false
+//) {
+//    Intent(this, T::class.java).run {
+//        if (needsLogin) {
+//            putExtra(LoginConstant.STR_NEEDS_LOGIN, true)
+//        }
+//        startActivity(this)
+//    }
+//}
 
 /**
  * 带参数的跳转
