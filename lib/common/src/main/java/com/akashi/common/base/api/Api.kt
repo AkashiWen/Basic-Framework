@@ -8,11 +8,14 @@ data class AResponse<T>(val message: String = "", val code: Int = NO_CONTENT, va
         const val OK = 200
         const val NO_CONTENT = 204
         const val CLIENT_ERROR = 400
-        const val REQUIRES_LOGIN = 401
+        const val UNAUTHORIZED = 401
         const val SERVER_ERROR = 500
     }
 
     fun isFail() = this.code >= CLIENT_ERROR
+
+    fun isUnAuthorized() = this.code == UNAUTHORIZED
+
     fun isSuccess() = this.code == OK || this.code == NO_CONTENT
 
 }

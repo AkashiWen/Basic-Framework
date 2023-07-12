@@ -175,7 +175,10 @@ abstract class BaseViewModel : ViewModel() {
                                 e = NetworkErrorException(errorMessage),
                                 toast = aResponse.message
                             )
-                        } else if (isEmpty(aResponse)) {
+                        } else if (aResponse.isUnAuthorized()) {
+                            onUnAuthorized?.invoke()
+                        }
+                        else if (isEmpty(aResponse)) {
                             onResponseEmpty?.invoke()
                         } else {
                             onResponse?.invoke(aResponse)
